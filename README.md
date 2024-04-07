@@ -59,3 +59,5 @@ Navigate to the backend folder in your terminal.
 Run the Django development server:
 
 python manage.py runserver
+
+Access the MarketApp at http://127.0.0.1:8000/products/ in your web browser.
