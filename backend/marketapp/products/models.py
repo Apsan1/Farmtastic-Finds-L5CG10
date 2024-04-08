@@ -17,7 +17,7 @@ class Products(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)  
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     stock = models.BooleanField(default=False)
-    image = models.ImageField(upload_to='products/', null=True, blank=True)
+    image = models.ImageField(upload_to='image/', null=True, blank=True)
 
     # Define a string representation for the product
     def __str__(self):
