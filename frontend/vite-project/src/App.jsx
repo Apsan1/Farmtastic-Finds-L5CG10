@@ -3,7 +3,8 @@ import Footer from "./components/footer";
 import { motion } from "framer-motion";
 import React from 'react';
 import Homepage_navbar from "./components/homepage_navbar";
-const App = () => {
+
+const App = () => {   
   const titleAnimation = {
     hidden:{
       opacity:0,
@@ -158,7 +159,7 @@ const App = () => {
 }
 
  {/* Homepage Navbar */}
-<Homepage_navbar />
+{/* <Homepage_navbar /> */}
    
 
 export default App;

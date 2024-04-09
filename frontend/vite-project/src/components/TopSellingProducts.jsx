@@ -1,5 +1,7 @@
 
 import ProductCard from "./ProductCard"
+import { useCart } from 'react-use-cart';
+
 const data=[
     { id: 0, img: "/images/product_1.png", name: "Orange", price: "Rs.120/kg"},
     { id: 1, img: "/images/product_2.png", name: "Pomegranate", price: "Rs.180/kg"},
@@ -8,6 +10,19 @@ const data=[
 ]
 
 const Trending_products = () => {
+    const [productData, setProductData] = useState([]);
+    const [theme] = useThemeHook();
+    const { addItem } = useCart();
+
+    useEffect(()=>{
+        getResponse();
+    },[]);
+
+    const getResponse = async()=>{
+        const res = await fetch(`https://fakestoreapi.com/products/${props.productId}`)
+                          .then(res=> res.json());
+                          setProductData(await res);
+    }
   return (
     <div className="container pt-16">
         <div className="lg:flex justify-between items-center">
