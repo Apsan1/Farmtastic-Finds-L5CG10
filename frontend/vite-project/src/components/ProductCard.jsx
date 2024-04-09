@@ -1,5 +1,13 @@
 import React from "react";
 import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
+import Cart from "./Cart";
+
+function onClickOnshopping () {
+  console.log("Shopping");
+  // gotocartpage
+  return <Cart />;
+}
+
 
 const ProductCard = ({ img, name, price }) => {
   return (
@@ -17,6 +25,7 @@ const ProductCard = ({ img, name, price }) => {
         <h3 className="text-2xl font-medium text-orange-600">{price}</h3>
         <button
           className="absolute -top-4 right-1 bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
+          onClick={onClickOnshopping}
         >
           <AiOutlineShopping />
         </button>
