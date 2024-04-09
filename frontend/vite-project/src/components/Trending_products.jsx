@@ -4,7 +4,7 @@ const data=[
     { id: 0, img: "/images/product_1.png", name: "Orange", price: "Rs.120/kg"},
     { id: 1, img: "/images/product_2.png", name: "Pomegranate", price: "Rs.180/kg"},
     { id: 2, img: "/images/product_3.png", name: "Grapes", price: "Rs.110/kg"},
-    { id: 3, img: "/images/product_4.png", name: "Strawberry", price: "Rs.130/kg"},
+   
 ]
 
 const Trending_products = () => {
@@ -25,10 +25,8 @@ const Trending_products = () => {
                 <button className="text-gray-600 hover:text-accent">Eggs</button>
             </div>
         </div> 
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 pt-8 gap-2">
-            <div>
-                <img className="w-full h-full object-cover" src="/images/j.png" alt="banner"/>
-            </div>
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-3 pt-8 gap-6">
+            
             {data.map(el => (
             <ProductCard key={el.id}
             img={el.img}

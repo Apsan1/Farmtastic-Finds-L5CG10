@@ -7,6 +7,7 @@ import Homepage_navbar from "./components/homepage_navbar";
 import Mob_homepage_nav from "./components/Mob_homepage_nav.jsx";
 import Category from './components/Category.jsx'
 import Trending_products from './components/Trending_products.jsx'
+import SaleProducts from './components/SaleProducts.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,5 +16,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Hero />
     <Category />
     <Trending_products />
+    <SaleProducts />
   </React.StrictMode>,
 )
