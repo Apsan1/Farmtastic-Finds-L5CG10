@@ -2,16 +2,56 @@ import React, { useState, useEffect } from "react";
 import { BsArrowRight } from 'react-icons/bs';
 import ProductCard from "./ProductCard";
 
-const data = [
-  { id: 2, img: "/images/product__6.webp", name: "Kiwi", price: "Rs.110/kg",},
-  { id: 3, img: "/images/product_4.png", name: "Strawberry", price: "Rs.130/kg" },
-  { id: 1, img: "/images/product__5.webp", name: "Tomato", price: "Rs.80/kg" },
-];
-
 const SaleProducts = () => {
   const [timer, setTimer] = useState("Ends in 08:54:34");
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/products/');
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+    
+        // Extract image URLs
+        const imgUrls = data.map(item => item.image);
+    
+        // Fetch images and store as blobs
+        const imageBlobs = await Promise.all(imgUrls.map(fetchImage));
+    
+        // Create object URLs for each blob
+        const imageSrcs = imageBlobs.map(blob => URL.createObjectURL(blob));
+    
+        // Combine original data with imageSrcs
+        const recordsWithImages = data.map((item, index) => ({
+          ...item,
+          imageSrc: imageSrcs[index]
+        }));
+    
+        setProducts(recordsWithImages);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    
+    // Function to fetch image
+    const fetchImage = async (imageUrl) => {
+      try {
+        const response = await fetch(imageUrl);
+        if (!response.ok) {
+          throw new Error('Failed to fetch image');
+        }
+        return await response.blob();
+      } catch (error) {
+        console.error('Error fetching image:', error);
+        return null;
+      }
+    };
+    
+    fetchProducts();
+
     // Calculate time remaining
     const endTime = new Date().getTime() + 8 * 60 * 60 * 1000 + 54 * 60 * 1000 + 34 * 1000; // Add remaining milliseconds
     const updateTimer = () => {
@@ -57,8 +97,8 @@ const SaleProducts = () => {
           </div>
           </div>
         </div>
-        {data.map(el => (
-          <ProductCard key={el.id} img={el.img} name={el.name} price={el.price} />
+        {products.map(product => (
+          <ProductCard key={product.id} img={product.imageSrc} name={product.name} price={product.price+ "/kg"} />
         ))}
       </div>
     </div>
