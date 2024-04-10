@@ -7,14 +7,17 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ('name',)
 
 class ProductsSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()  # Define CategorySerializer here
 
     class Meta:
         model = Products
         fields = ('category', 'id', 'name', 'price', 'stock', 'image', 'description')
 
-    def create(self, validated_data):
-        category_data = validated_data.pop('category')  # Pop category data from validated_data
-        category_instance, _ = Category.objects.get_or_create(**category_data)  # Get or create category instance
-        product_instance = Products.objects.create(category=category_instance, **validated_data)  # Create product instance
-        return product_instance
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        category_data = instance.category
+        if category_data:
+            category_representation = CategorySerializer(category_data).data
+            representation['category'] = category_representation.get('name')
+        return representation
+    
+   
