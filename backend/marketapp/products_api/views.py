@@ -2,17 +2,17 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
 from products.models import Products,Category
-from .serializers import ProductsSerializers
+from .serializers import ProductsSerializer
 
 
 
 class ProductsList(generics.ListCreateAPIView):
     queryset=Products.objects.all()
-    serializer_class= ProductsSerializers
+    serializer_class= ProductsSerializer
    
 class ProductsDetail(generics.RetrieveDestroyAPIView):
     queryset=Products.objects.all()
-    serializer_class= ProductsSerializers
+    serializer_class= ProductsSerializer
     
 class ProductsDeleteAll(generics.DestroyAPIView):
     queryset = Products.objects.all()
