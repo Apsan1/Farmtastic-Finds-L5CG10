@@ -9,16 +9,17 @@ import Category from './components/Category.jsx'
 import Trending_products from './components/Trending_products.jsx'
 import SaleProducts from './components/SaleProducts.jsx'
 import { CartProviders } from './context/cart.jsx'
-
+import FetchData from './FetchData.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CartProviders>
+    <FetchData />
     <Homepage_navbar />
     <Mob_homepage_nav />
     <Hero />
     <Category />
     <Trending_products />
     <SaleProducts />
-    </CartProviders>
+     </CartProviders>
   </React.StrictMode>,
 )

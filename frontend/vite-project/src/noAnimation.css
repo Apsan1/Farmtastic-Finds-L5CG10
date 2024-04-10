@@ -1,0 +1,24 @@
+@keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-bounce {
+    animation: bounce 1s infinite;
+  }
+  
+  .animate-none {
+    animation: none !important;
+  }
+  
+.button{
+  animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+.button:hover{
+  animation: none;
+}
