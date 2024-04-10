@@ -50,9 +50,9 @@ const SaleProducts = () => {
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 pt-8 gap-2 relative">
         <img className="w-full h-full object-cover" src="/images/j.png" alt="banner" />
-        <div className="absolute bottom-20 left-20">
-        <div className="animate-bounce inline-block mt-10">
-          <div className="bg-accentDark hover:bg-[#f2861a] text-white rounded-full flex items-center gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer">
+        <div className="absolute bottom-20 left-20 ">
+        <div className="animate-bounce inline-block mt-10 ">
+          <div className="bg-accentDark hover:bg-[#f2861a] text-white rounded-full flex items-center gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer group-hover:animation-none">
             Shop Now <BsArrowRight />
           </div>
           </div>

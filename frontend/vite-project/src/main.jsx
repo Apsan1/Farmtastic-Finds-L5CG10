@@ -8,14 +8,11 @@ import Mob_homepage_nav from "./components/Mob_homepage_nav.jsx";
 import Category from './components/Category.jsx'
 import Trending_products from './components/Trending_products.jsx'
 import SaleProducts from './components/SaleProducts.jsx'
+import FetchData from './FetchData.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Homepage_navbar />
-    <Mob_homepage_nav />
-    <Hero />
-    <Category />
-    <Trending_products />
-    <SaleProducts />
+
+    <FetchData />
   </React.StrictMode>,
 )
