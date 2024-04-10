@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { BsArrowRight } from 'react-icons/bs';
 import ProductCard from "./ProductCard";
-
-const data = [
-  { id: 2, img: "/images/product__6.webp", name: "Kiwi", price: "Rs.110/kg",},
-  { id: 3, img: "/images/product_4.png", name: "Strawberry", price: "Rs.130/kg" },
-  { id: 1, img: "/images/product__5.webp", name: "Tomato", price: "Rs.80/kg" },
-];
+import fetchProducts  from "./fetchproducts.jsx";
 
 const SaleProducts = () => {
   const [timer, setTimer] = useState("Ends in 08:54:34");
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    fetchProducts().then(data => setProducts(data));
+
     // Calculate time remaining
     const endTime = new Date().getTime() + 8 * 60 * 60 * 1000 + 54 * 60 * 1000 + 34 * 1000; // Add remaining milliseconds
     const updateTimer = () => {
@@ -57,8 +55,8 @@ const SaleProducts = () => {
           </div>
           </div>
         </div>
-        {data.map(el => (
-          <ProductCard key={el.id} img={el.img} name={el.name} price={el.price} />
+        {products.map(product => (
+          <ProductCard key={product.id} img={product.imageSrc} name={product.name} price={product.price+ "/kg"} />
         ))}
       </div>
     </div>
