@@ -1,6 +1,10 @@
 import React from 'react'
-import { BsArrowRight } from "react-icons/bs"
+import { BsArrowRight } from 'react-icons/bs'
 
+function handleShopNow() {
+  console.log('Shop Now Clicked');
+  window.location.href = '/shop'; // Redirect to the /shop URL
+}
 const Hero = () => {
   return (
     <div className="container">
@@ -21,7 +25,7 @@ const Hero = () => {
         Rs.20
     </div>
     <div className="animate-bounce inline-block mt-10">
-    <div className="bg-accentDark hover:bg-[#f2861a] text-white rounded-full w-fit flex items-center gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer">
+    <div onClick={handleShopNow} className="bg-accentDark hover:bg-[#f2861a] text-white rounded-full w-fit flex items-center gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer">
         Shop Now <BsArrowRight />
      </div>
     </div>
@@ -46,7 +50,7 @@ const Hero = () => {
     <div className="absolute top-2/4 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
     <p className="text-black text-4xl font-medium">Up to 30% off</p>
     <div className="animate-bounce inline-block mt-12">
-     <div className="bg-accentDark hover:bg-[#f2861a] text-white rounded-full w-fit flex items-center gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer">
+     <div onClick={handleShopNow} className="bg-accentDark hover:bg-[#f2861a] text-white rounded-full w-fit flex items-center gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer">
         Shop Now <BsArrowRight />
       </div>
     </div>
