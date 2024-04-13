@@ -36,25 +36,11 @@ const SaleProducts = () => {
   return (
     <div className="container pt-16">
       <div className="lg:flex justify-between items-center">
-        <div>
-          <h3 className="font-medium text-2xl">Flash Sale</h3>
-          <p className="text-red-600 mt-2">
-            Grab it or miss it !!
-          </p>
-        </div>
         <div className="space-x-4 mt:8 lg:mt-0">
           <button className="trending_btn">{timer}</button>
         </div>
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 pt-8 gap-2 relative">
-        <img className="w-full h-full object-cover" src="/images/j.png" alt="banner" />
-        <div className="absolute bottom-20 left-20">
-        <div className="animate-bounce inline-block mt-10">
-          <div className="bg-accentDark hover:bg-[#f2861a] text-white rounded-full flex items-center gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer">
-            Shop Now <BsArrowRight />
-          </div>
-          </div>
-        </div>
         {products.map(product => (
           <ProductCard key={product.id} img={product.imageSrc} name={product.name} price={product.price+ "/kg"} />
         ))}

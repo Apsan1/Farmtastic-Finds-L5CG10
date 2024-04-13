@@ -3,7 +3,10 @@ import { BsSearch } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import CartCount from './CartCount';
-
+function handleCartClick() {
+  console.log("Cart clicked");
+  window.location.href = "/cart";
+}
 const homepage_navbar = () => {
   return (
     <div className="sticky top-0 bg-white z-10">
@@ -23,7 +26,7 @@ const homepage_navbar = () => {
             <div className="icon_wrapper">
               <FaRegHeart />
             </div>
-            <div className="icon_wrapper relative">
+            <div className="icon_wrapper relative" onClick={handleCartClick}>
               <AiOutlineShoppingCart />
               <CartCount size="w-[20px] h-[20px]" />
             </div>

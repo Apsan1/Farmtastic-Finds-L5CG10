@@ -6,7 +6,6 @@ import { CartContext } from "../context/cart";
 function ProductCard (props) {
   const { id, img, name, price, quantity } = props;
 
-
   const {cartItems, setCartItems} = useContext(CartContext);
 
   const handleClick = () => {

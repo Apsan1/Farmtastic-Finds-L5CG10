@@ -9,12 +9,15 @@ import { CartProviders } from './context/cart.jsx';
 import Shoppage from './shoppage.jsx';
 import VideoBackground from './components/video-background.jsx';
 import Footer from './components/footer.jsx';
+import Cart from './cart.jsx';
+
 const RouterPaths = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainComponent />} />
         <Route path="/shop" element={<ShopComponent />} />
+        <Route path="/cart" element={<CartComponent />} />
       </Routes>
     </Router>
   )
@@ -39,6 +42,16 @@ const ShopComponent = () => {
     <React.StrictMode>
       <CartProviders>
         <Shoppage />
+      </CartProviders>
+    </React.StrictMode>
+  );
+};
+
+const CartComponent = () => {
+  return (
+    <React.StrictMode>
+      <CartProviders>
+        <Cart />
       </CartProviders>
     </React.StrictMode>
   );
