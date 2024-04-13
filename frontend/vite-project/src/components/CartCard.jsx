@@ -25,7 +25,7 @@ const CartCard = () => {
         <div>
             <h2 className="text-xl font-semibold">{product.name}</h2>
             <h3 className="text-xl font-light">${product.price}</h3>
-            {/*<h3 className="text-xl font-light">{product.quantity}</h3>*/}
+            {/* <h3 className="text-xl font-light">{product.quantity}</h3> */}
         </div>
         <button
             className="bg-red-500 text-white px-4 py-2 rounded-lg"
@@ -34,6 +34,8 @@ const CartCard = () => {
             Remove
         </button>
     </div>
+   
+
 ))}
 
         </div>
