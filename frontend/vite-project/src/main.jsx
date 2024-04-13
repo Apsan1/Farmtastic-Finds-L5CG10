@@ -5,10 +5,10 @@ import './index.css';
 import Hero from './components/Hero.jsx';
 import Homepage_navbar from "./components/homepage_navbar";
 import Mob_homepage_nav from "./components/Mob_homepage_nav.jsx";
-import SaleProducts from './components/SaleProducts.jsx';
 import { CartProviders } from './context/cart.jsx';
 import Shoppage from './shoppage.jsx';
-
+import VideoBackground from './components/video-background.jsx';
+import Footer from './components/footer.jsx';
 const RouterPaths = () => {
   return (
     <Router>
@@ -26,7 +26,9 @@ const MainComponent = () => {
       <CartProviders>
         <Homepage_navbar />
         <Mob_homepage_nav />
+        <VideoBackground />
         <Hero />
+        <Footer />
       </CartProviders>
     </React.StrictMode>
   );
