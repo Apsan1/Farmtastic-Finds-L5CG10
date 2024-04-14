@@ -10,6 +10,7 @@ import Shoppage from './shoppage.jsx';
 import VideoBackground from './components/video-background.jsx';
 import Footer from './components/footer.jsx';
 import Cart from './cart.jsx';
+import ProductDetails from './ProductDetails.jsx';
 
 const RouterPaths = () => {
   return (
@@ -18,6 +19,7 @@ const RouterPaths = () => {
         <Route path="/" element={<MainComponent />} />
         <Route path="/shop" element={<ShopComponent />} />
         <Route path="/cart" element={<CartComponent />} />
+        <Route path="/product" element={<ProductDetails />} />
       </Routes>
     </Router>
   )
