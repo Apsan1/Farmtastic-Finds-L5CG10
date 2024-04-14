@@ -11,24 +11,16 @@ const fetchingProducts = async () => {
       // Extract image URLs
       const imgUrls = data.map(item => item.image);
   
-      // Fetch images and store as blobs
-      const imageBlobs = await Promise.all(imgUrls.map(fetchImage));
-  
-      // Create object URLs for each blob
-      const imageSrcs = imageBlobs.map(blob => URL.createObjectURL(blob));
-  
-      // Combine original data with imageSrcs
-      const recordsWithImages = data.map((item, index) => ({
-        ...item,
-        imageSrc: imageSrcs[index]
-      }));
-  
-      return recordsWithImages;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-  
+  const recordsWithImages = data.map((item, index) => ({
+    ...item,
+    imageSrc: imgUrls[index]
+  }));
+
+  return recordsWithImages;
+} catch (error) {
+  console.error('Error fetching data:', error);
+  return [];
+}}
   // Function to fetch image
   const fetchImage = async (imageUrl) => {
     try {
