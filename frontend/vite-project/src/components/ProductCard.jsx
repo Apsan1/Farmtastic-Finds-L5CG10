@@ -4,9 +4,7 @@ import { useState } from 'react';
 import { CartContext } from "../context/cart";
 
 function ProductCard (props) {
-  const { id, img, name, price, quantity } = props;
-
-
+  const {id, img, name, price, quantity = 1 } = props;
   const {cartItems, setCartItems} = useContext(CartContext);
 
   const handleClick = () => {
