@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { BsArrowRight } from 'react-icons/bs';
 import ProductCard from "./ProductCard";
 import fetchProducts  from "./fetchproducts.jsx";
 
 const SaleProducts = () => {
-  const [timer, setTimer] = useState("Ends in 08:54:34");
   const [products, setProducts] = useState([]);
 
   useEffect(() => {

@@ -23,7 +23,7 @@ const Cart = () => {
         <div className="container pt-16">
             <div className="lg:flex justify-between items-center">
                 <div className="space-x-4 mt:8 lg:mt-0">
-                    <button className="trending_btn" onClick={handleShopClick} >Sale</button>
+                    <button className="trending_btn" onClick={handleShopClick} >Back</button>
                 </div>
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 pt-8 gap-2 relative">
