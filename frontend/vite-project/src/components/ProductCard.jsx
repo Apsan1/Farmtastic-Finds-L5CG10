@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
 import { CartContext } from "../context/cart";
-import ProductDetails from "../ProductDetails";
 
 function ProductCard(props) {
   const { id, img, name, price, quantity = 1 } = props;
 
 
   const handleClickProducts = (id) => {
-    ProductDetails(id); /* We need to re direct to this page */
+    window.location.href = `/product/${id}`;
   };
   const { cartItems, setCartItems } = useContext(CartContext);
   const handleClick = () => {
