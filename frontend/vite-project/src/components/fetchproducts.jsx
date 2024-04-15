@@ -38,4 +38,19 @@ const fetchingProducts = async () => {
   return fetchingProducts();
 }
 
+export async function fetchById(id) {
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/products/${id}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    const Gotdata = await response.json();
+    return Gotdata;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return "Failed to fetch data";
+  }
+}
+
+
 export default fetchProducts;

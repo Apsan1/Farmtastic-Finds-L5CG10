@@ -1,19 +1,21 @@
 import React, { useContext } from "react";
 import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
-import { useState } from 'react';
 import { CartContext } from "../context/cart";
 
-function ProductCard (props) {
-  const {id, img, name, price, quantity = 1 } = props;
-  const {cartItems, setCartItems} = useContext(CartContext);
+function ProductCard(props) {
+  const { id, img, name, price, quantity = 1 } = props;
 
+
+  const handleClickProducts = (id) => {
+    window.location.href = `/product/${id}`;
+  };
+  const { cartItems, setCartItems } = useContext(CartContext);
   const handleClick = () => {
-
-    setCartItems(prev => [...prev, props])
+    setCartItems(prev => [...prev, props]);
   };
 
   return (
-    <div className="border border-gray-300 border-2 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg-relative">
+    <div className="border border-gray-300 border-2 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg relative" onClick={() => handleClickProducts(id)}>
       <img src={img} alt={name} />
       <div className="space-y-2 relative p-4">
         <div className="text-yellow-400 flex gap-[2px] text-[20px]">
@@ -40,6 +42,6 @@ function ProductCard (props) {
       </div>
     </div>
   );
-};
+}
 
 export default ProductCard;
