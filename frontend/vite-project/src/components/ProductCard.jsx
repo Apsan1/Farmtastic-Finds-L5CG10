@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
-import { useState } from 'react';
 import { CartContext } from "../context/cart";
+
 
 function ProductCard (props) {
   const {id, img, name, price} = props;
@@ -23,6 +23,7 @@ function ProductCard (props) {
   return (
     <div className="border border-gray-300 border-2 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg-relative">
       <img src={img} alt={name} style={{ height: "10em" }} />
+
       <div className="space-y-2 relative p-4">
         <div className="text-yellow-400 flex gap-[2px] text-[20px]">
           <AiFillStar />
@@ -63,6 +64,6 @@ function ProductCard (props) {
       </div>
     </div>
   );
-};
+}
 
 export default ProductCard;
