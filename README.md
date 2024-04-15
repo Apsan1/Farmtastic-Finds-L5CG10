@@ -82,6 +82,18 @@ INSERT INTO products_products (category_id, name, description, price, stock) VAL
 
 ## Running the Application
 
+## Automatic Run (For Windows)
+
+- Navigate to the root folder of the project in explorer.
+
+- Run the **RunProject.bat** file.
+
+- Access the MarketApp Backend at **< http://127.0.0.1:8000/products/ >** in your web browser.
+
+- Access the App's Frontend at **<http://localhost:5173>** or use the given link in your command prompt in your web browser.
+
+## Manual Run
+
 ### BackEnd as an Admin
 
 - Navigate to the backend folder in your terminal.
