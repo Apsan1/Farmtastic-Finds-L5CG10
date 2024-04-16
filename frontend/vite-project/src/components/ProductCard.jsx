@@ -9,7 +9,7 @@ function ProductCard (props) {
   const {cartItems, setCartItems} = useContext(CartContext);
   const [quantity,setQuantity]=useState(1);
 
-  const handleClickProducts = (id) => {
+  function handleClickProducts (id){
     window.location.href = `/product/${id}`;
   };
 
@@ -25,7 +25,7 @@ function ProductCard (props) {
   }
 
   return (
-    <div onClick={handleClickProducts(id)} className="border border-gray-300 border-2 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg-relative">
+    <div className="border border-gray-300 border-2 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg-relative" onClick={()=>handleClickProducts(id)}>
       <img src={img} alt={name} style={{ height: "10em" }} />
 
       <div className="space-y-2 relative p-4">
