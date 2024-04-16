@@ -1,5 +1,7 @@
 
 import CategoryCard from "./CategoryCard"
+import { fetchCategories } from "./fetchproducts"
+fetchCategories().then(data => console.log(data));
 const data=[
     {
     id: 0,
