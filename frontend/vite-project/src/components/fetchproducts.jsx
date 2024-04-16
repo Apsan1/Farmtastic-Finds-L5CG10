@@ -52,27 +52,5 @@ export async function fetchById(id) {
   }
 }
 
-export async function fetchCategories() {
-  try {
-    const response = await fetch('http://127.0.1:8000/products/');
-    if (!response.ok) {
-      throw new Error('Failed to fetch data');
-    }
-    var data = await response.json();
-    var categories = data.map(item => item.category);
-    var uniqueCategories = [...new Set(categories)];
-    // for how many times each category is repeated in the array of categories
-    var categoryCount = uniqueCategories.map(category => categories.filter(cat => cat === category).length);
-    // Combine the two arrays into an array of objects
-    var categoryData = uniqueCategories.map((category, index) => ({
-      category,
-      count: categoryCount[index]
-    }));
-    return categoryData;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return [];
-  }
-}
 
 export default fetchProducts;
