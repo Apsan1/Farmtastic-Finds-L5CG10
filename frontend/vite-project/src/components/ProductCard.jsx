@@ -26,7 +26,7 @@ function ProductCard (props) {
 
   return (
     <div className="border border-gray-300 border-2 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg-relative" onClick={()=>handleClickProducts(id)}>
-      <img src={img} alt={name} style={{ height: "10em" }} />
+      <img src={img} alt={name} style={{ height: "15em" }} />
 
       <div className="space-y-2 relative p-4">
         <div className="text-yellow-400 flex gap-[2px] text-[20px]">
