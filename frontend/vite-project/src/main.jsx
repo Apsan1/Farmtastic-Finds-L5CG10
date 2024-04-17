@@ -30,7 +30,7 @@ const MainComponent = () => {
     <React.StrictMode>
       <CartProviders>
         <Homepage_navbar />
-        <Mob_homepage_nav />
+        
         <VideoBackground />
         <Hero />
         <Footer />
