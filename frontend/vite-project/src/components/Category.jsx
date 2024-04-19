@@ -9,6 +9,7 @@ const Category = () => {
     const fetchData = async () => {
       try {
         const data = await fetchCategories();
+        console.log(data);
         setCategoryData(data);
       } catch (error) {
         console.error('Error fetching category data:', error);
@@ -24,9 +25,9 @@ const Category = () => {
         {categoryData.map((el, index) => (
           <CategoryCard 
             key={index}
-            img={el.img} // Assuming you have 'img' property in your category data
-            name={el.category} // Assuming 'category' property contains category name
-            count={el.count}
+            img={el.cat_image} // Assuming you have 'img' property in your category data
+            name={el.name} // Assuming 'category' property contains category name
+            
           />
         ))}
       </div>
