@@ -43,13 +43,31 @@ export async function fetchCategories() {
       throw new Error('Failed to fetch data');
     }
     const data = await response.json();
-    return data;
+    
+    // Wait for fetchProducts() to resolve and get the array of products
+    const products = await fetchProducts();
+
+    // Calculate category count using reduce
+    const categoryCount = products.reduce((acc, item) => {
+      if (acc[item.category]) {
+        acc[item.category] += 1;
+      } else {
+        acc[item.category] = 1;
+      }
+      return acc;
+    }, {});
+
+    // Map categories data and add count property
+    return data.map(item => ({
+      ...item,
+      count: categoryCount[item.name] || 0
+    }));
+
   }
   catch (error) {
     console.error('Error fetching categories:', error);
     return [];
   }
-
 }
 
 export default fetchProducts;
