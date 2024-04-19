@@ -70,4 +70,20 @@ export async function fetchCategories() {
   }
 }
 
+//function to fetch products by category
+export async function fetchProductsByCategory(category) {
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/products/?category=${category}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    const data = await response.json();
+    return data;
+  }
+  catch (error) {
+    console.error('Error fetching products by category:', error);
+    return [];
+  }
+}
+
 export default fetchProducts;
