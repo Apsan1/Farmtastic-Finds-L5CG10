@@ -12,6 +12,10 @@ function ProductCard(props) {
     window.location.href = `/product/${id}`;
   };
 
+  function handleWishlist() {
+    console.log("Added to wishlist");
+  }
+
   const handleClick = () => {
     setCartItems(prev => [...prev, { ...props, totalQuantity: quantity }]);
   }
@@ -53,13 +57,14 @@ function ProductCard(props) {
         </div>
         <button
           className="absolute -top-4 right-1 bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
-          onClick={handleClick}
+          onClick={ (e) => { e.stopPropagation(); handleClick() } } // Prevent event propagation
         >
           <AiOutlineShopping />
         </button>
 
         <button
           className="absolute -top-4 right-14 bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
+          onClick={ (e) => { e.stopPropagation(); handleWishlist() } } // Prevent event propagation
         >
           <AiFillHeart />
         </button>
