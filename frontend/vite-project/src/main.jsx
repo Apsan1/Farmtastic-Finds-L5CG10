@@ -11,6 +11,7 @@ import VideoBackground from './components/video-background.jsx';
 import Footer from './components/footer.jsx';
 import Cart from './cart.jsx';
 import ProductDetails from './ProductDetails.jsx';
+import { SaleProductsFilteredByCategory } from './components/SaleProducts.jsx';
 
 const RouterPaths = () => {
   return (
@@ -20,6 +21,7 @@ const RouterPaths = () => {
         <Route path="/shop" element={<ShopComponent />} />
         <Route path="/cart" element={<CartComponent />} />
         <Route path="/product/:id" element={<ProductDetailsComponent />} />
+        <Route path="/category/:category" element={<SaleProductsFilteredByCategoryComponent />} />
       </Routes>
     </Router>
   )
@@ -65,6 +67,17 @@ const ProductDetailsComponent = () => {
       <CartProviders>
         <Homepage_navbar />
         <ProductDetails />
+      </CartProviders>
+    </React.StrictMode>
+  );
+}
+
+const SaleProductsFilteredByCategoryComponent = () => {
+  return (
+    <React.StrictMode>
+      <CartProviders>
+        <Homepage_navbar />
+        <SaleProductsFilteredByCategory />
       </CartProviders>
     </React.StrictMode>
   );
