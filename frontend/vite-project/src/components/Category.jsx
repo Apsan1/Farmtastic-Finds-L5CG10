@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CategoryCard from "./CategoryCard";
 import { fetchCategories } from "./fetchproducts";
-
 const Category = () => {
   const [categoryData, setCategoryData] = useState([]);
 
@@ -19,6 +18,7 @@ const Category = () => {
   }, []); // Empty dependency array to run effect only once on mount
 
   return (
+    <div>
     <div className="container">
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {categoryData.map((el, index) => (
@@ -30,6 +30,7 @@ const Category = () => {
           />
         ))}
       </div>
+    </div>
     </div>
   );
 }

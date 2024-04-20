@@ -11,6 +11,7 @@ function handleShopNow() {
 // Hero component
 const Hero = () => {
   return (
+    
     <div className="container mx-auto">
       <div className="flex flex-col items-center justify-top h-screen mt-20">
         {/* Main heading */}
@@ -35,6 +36,7 @@ const Hero = () => {
           
         </div>
       </div>
+     
     </div>
   );
 };

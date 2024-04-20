@@ -1,23 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
-  const footerAnimation = {
-    hidden: {
-      y: 100,
-    },
-    show: {
-      y: 0,
-      transition: {
-        delay: 3.9,
-        duration: 0.5,
-      }
-    }
-  };
-
   return (
-    <motion.footer className="flex justify-center items-center py-4 flex-col" variants={footerAnimation} initial="hidden" animate="show">
+    <footer className="flex justify-center items-center py-4 flex-col">
       <ul className="flex space-x-9">
         <li>
           <a href="#" className="flex items-center text-sm font-semibold">
@@ -39,7 +25,7 @@ const Footer = () => {
         </li>
       </ul>
       <div className="text-sm">&copy; 2024 Farmtastic-Finds. All rights reserved.</div>
-    </motion.footer>
+    </footer>
   );
 }
 

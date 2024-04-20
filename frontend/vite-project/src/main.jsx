@@ -33,7 +33,7 @@ const MainComponent = () => {
         
         <VideoBackground />
         <Hero />
-        <Footer />
+       <Footer />
       </CartProviders>
     </React.StrictMode>
   );
