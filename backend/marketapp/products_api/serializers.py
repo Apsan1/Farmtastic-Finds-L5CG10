@@ -5,7 +5,11 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ('name',)
-
+        
+class CategorySerializerAll(serializers.ModelSerializer):
+     class Meta:
+        model = Category
+        fields='__all__'
 class ProductsSerializer(serializers.ModelSerializer):
 
     class Meta:
