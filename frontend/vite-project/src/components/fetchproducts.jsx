@@ -1,5 +1,5 @@
 // Function to fetch products
-async function fetchProducts() {
+export async function fetchProducts() {
   try {
     const response = await fetch('http://127.0.0.1:8000/products/');
     if (!response.ok) {
@@ -85,5 +85,3 @@ export async function fetchProductsByCategory(category) {
     return [];
   }
 }
-
-export default fetchProducts;

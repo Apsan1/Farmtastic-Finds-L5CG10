@@ -9,7 +9,6 @@ const Category = () => {
     const fetchData = async () => {
       try {
         const data = await fetchCategories();
-        console.log(data);
         setCategoryData(data);
       } catch (error) {
         console.error('Error fetching category data:', error);
