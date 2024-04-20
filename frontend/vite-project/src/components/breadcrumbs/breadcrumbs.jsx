@@ -1,15 +1,17 @@
-import React from 'react'
-import './breadcrumbs.css'
+import React from 'react';
+import './breadcrumbs.css';
 import { BiArrowFromLeft } from 'react-icons/bi';
 
-
-const Breadcrum = (props) => {
-    const {product} =props;
+const Breadcrum = ({ category }) => { // Receive category prop
   return (
     <div className='breadcrum'>
-      HOME<img src={BiArrowFromLeft} alt="" />SHOP <img src={BiArrowFromLeft} alt=""/>{product.category} <img src={BiArrowFromLeft} alt={product.name}/>
+      <span>HOME</span>
+      <BiArrowFromLeft className="breadcrumb-icon" />
+      <span>SHOP</span>
+      <BiArrowFromLeft className="breadcrumb-icon" />
+      <span>{el.name}</span> {/* Use category data */}
     </div>
-  )
-}
+  );
+};
 
-export default Breadcrum
+export default Breadcrum;
