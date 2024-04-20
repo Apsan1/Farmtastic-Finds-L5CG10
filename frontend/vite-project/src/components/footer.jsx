@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
+//footer component definition
 const Footer = () => {
   return (
     <footer className="flex justify-center items-center py-4 flex-col">

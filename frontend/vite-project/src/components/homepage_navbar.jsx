@@ -4,16 +4,19 @@ import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import CartCount from './CartCount';
 
+// Function to handle click on the cart icon
 function handleCartClick() {
   console.log("Cart clicked");
-  window.location.href = "/cart";
+  window.location.href = "/cart"; // Redirects to the cart page
+
 }
 
+// Function to handle click on the logo
 function handleLogoClick(){
   console.log("Logo clicked");
-  window.location.href = "/";
+  window.location.href = "/"; // Redirects to the homepage
 }
-
+// Return JSX for the homepage navbar
 const HomepageNavbar = () => {
   return (
     <div className="sticky top-0 bg-white z-10">
