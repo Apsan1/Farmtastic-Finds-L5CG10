@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchById } from './components/fetchproducts';
 import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
 import { CartContext } from './context/cart';
+import Breadcrum from './components/breadcrumbs/breadcrumbs';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -10,8 +11,6 @@ const ProductDetails = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
-
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -40,7 +39,9 @@ const handleQuantity = (value) => {
   }
 
   return (
-
+    // breadcrumb
+    <>
+    <Breadcrum product={product} /> {/*Passing product name here*/}
     <div className="flex">
       <div className="w-1/2">
         <img src={product.image} alt={product.name} className="w-full h-auto" />
@@ -91,6 +92,7 @@ const handleQuantity = (value) => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
