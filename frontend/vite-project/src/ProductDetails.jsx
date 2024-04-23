@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchById } from './components/fetchproducts'; // Importing fetchById function from fetchproducts.js
-import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai"; // Importing icons from react-icons library
+import { fetchById } from './components/fetchproducts';
+import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
+import { CartContext } from './context/cart';
 
 const ProductDetails = () => {
-  const { id } = useParams(); // Getting the 'id' parameter from the URL
-  const [product, setProduct] = useState(null); // State to store the product data
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const { cartItems, setCartItems } = useContext(CartContext);
+  const [quantity, setQuantity] = useState(1);
+
 
   
   useEffect(() => {
@@ -18,57 +22,72 @@ const ProductDetails = () => {
       }
     };
 
+
     fetchData(); // Calling fetchData function when component mounts or id changes
   }, [id]); // Dependency array with id parameter, so useEffect runs when id changes
 
+
+  const addtoCart = () => {
+    setCartItems(prev => [...prev, { ...product, totalQuantity: quantity }]);
+  }
+// Function to update quantity of the products
+const handleQuantity = (value) => {
+  const newQuantity = Math.max(0, quantity + value);
+  setQuantity(newQuantity);
+}
   if (!product) {
     return <div>Loading...</div>; // Displaying loading message if product data is not yet available
   }
 
   return (
-    <div className="flex ">
-      <div className="w-1/2 ">
-        <img src={product.image} alt={product.name} className="w-full h-auto" /> {/* Displaying product image */}
+
+    <div className="flex">
+      <div className="w-1/2">
+        <img src={product.image} alt={product.name} className="w-full h-auto" />
       </div>
-      <div className="w-1/2 p-4 ">
-        <p className="text-xl font-bold mb-2">{product.name}</p> {/* Displaying product name */}
-        <p className="text-md mb-2 text-gray-500">Fruits</p> {/* Displaying product category */}
+      <div className="w-1/2 p-4">
+        <p className="text-xl font-bold mb-2">{product.name}</p>
+        <p className="text-md mb-2 text-gray-500">Fruits</p>
         <div className="text-yellow-400 flex gap-[2px] text-[20px]">
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
           <AiOutlineStar />
-        </div> {/* Displaying star ratings */}
-        <p className="text-xl mb-2 text-orange-600">Rs. {product.price}/kg</p> {/* Displaying product price */}
-        <p className="text-lg mb-3">Description:</p> {/* Description title */}
-        <p className="text-lg mb-2">{product.description}</p> {/* Displaying product description */}
-        <p className="text-lg mb-2">Select Quantity:</p> {/* Quantity selection title */}
+        </div>
+        <p className="text-xl mb-2 text-orange-600">Rs. {product.price}/kg</p>
+        <p className="text-lg mb-3">Description:</p>
+        <p className="text-lg mb-2">{product.description}</p>
+        <p className="text-lg mb-2">Select Quantity:</p>
         <div className="flex items-center">
           <button
             className="bg-accent text-white p-1 rounded-full grid place-items-center cursor-pointer mr-2"
+            onClick={(e) => { e.stopPropagation(); handleQuantity(-1) }}
           >
-            - {/* Button to decrease quantity */}
+            -
           </button>
-         <p> 1</p> {/* Displaying selected quantity */}
+         <p>{quantity} </p>
           <button
             className="bg-accent text-white p-1 rounded-full grid place-items-center cursor-pointer ml-2"
-          >
-            + {/* Button to increase quantity */}
+            onClick={(e) => { e.stopPropagation(); handleQuantity(1) }}
+         >
+            +
           </button>
         </div>
         <div className="flex items-center mt-3">
           <button
             className="bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer mr-2"
+            onClick={() => addtoCart()}
           >
-            <AiOutlineShopping /> {/* Button for adding to cart */}
+            <AiOutlineShopping />
           </button>
           <button
             className="bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
           >
-            <AiFillHeart /> {/* Button for adding to favorites */}
+
+            <AiFillHeart />
           </button>
-         
+
         </div>
       </div>
     </div>
