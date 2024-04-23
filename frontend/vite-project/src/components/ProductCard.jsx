@@ -2,20 +2,22 @@ import React, { useState, useContext } from "react";
 import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
 import { CartContext } from "../context/cart";
 
-
+// ProductCard component definition
 function ProductCard(props) {
   const { id, img, name, price } = props;
+  // Accessing cart context
   const { cartItems, setCartItems } = useContext(CartContext);
+  // State for quantity of product
   const [quantity, setQuantity] = useState(1);
-
+// Function to handle click on product card
   function handleClickProducts(id) {
-    window.location.href = `/product/${id}`;
+    window.location.href = `/product/${id}`; // Redirects to the product page
   };
-
+// Function to handle adding to wishlist
   function handleWishlist() {
     console.log("Added to wishlist");
   }
-
+// Function to handle adding product to cart
   const handleClick = () => {
     setCartItems(prev => [...prev, { ...props, totalQuantity: quantity }]);
   }
@@ -25,7 +27,7 @@ function ProductCard(props) {
     const newQuantity = Math.max(0, quantity + value);
     setQuantity(newQuantity);
   }
-
+// Return JSX for product card
   return (
     <div className="border border-gray-300 border-2 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg-relative" onClick={() => handleClickProducts(id)}>
       <img src={img} alt={name} style={{ height: "15em" }} />
