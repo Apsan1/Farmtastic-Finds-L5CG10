@@ -8,6 +8,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { cartItems, setCartItems } = useContext(CartContext);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,9 +23,13 @@ const ProductDetails = () => {
   }, [id]);
 
   const addtoCart = () => {
-    setCartItems(prev => [...prev, { ...product, totalQuantity: 1 }]);
+    setCartItems(prev => [...prev, { ...product, totalQuantity: quantity }]);
   }
-
+// Function to update quantity of the products
+const handleQuantity = (value) => {
+  const newQuantity = Math.max(0, quantity + value);
+  setQuantity(newQuantity);
+}
   if (!product) {
     return <div>Loading...</div>;
   }
@@ -51,13 +56,15 @@ const ProductDetails = () => {
         <div className="flex items-center">
           <button
             className="bg-accent text-white p-1 rounded-full grid place-items-center cursor-pointer mr-2"
+            onClick={(e) => { e.stopPropagation(); handleQuantity(-1) }}
           >
             -
           </button>
-         <p> 1</p>
+         <p>{quantity} </p>
           <button
             className="bg-accent text-white p-1 rounded-full grid place-items-center cursor-pointer ml-2"
-          >
+            onClick={(e) => { e.stopPropagation(); handleQuantity(1) }}
+         >
             +
           </button>
         </div>
