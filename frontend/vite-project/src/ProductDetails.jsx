@@ -10,17 +10,22 @@ const ProductDetails = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
+
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchById(id);
-        setProduct(data);
+        const data = await fetchById(id); // Fetching product data by id
+        setProduct(data); // Updating the product state with fetched data
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error); // Logging error if fetch fails
       }
     };
-    fetchData();
-  }, [id]);
+
+
+    fetchData(); // Calling fetchData function when component mounts or id changes
+  }, [id]); // Dependency array with id parameter, so useEffect runs when id changes
+
 
   const addtoCart = () => {
     setCartItems(prev => [...prev, { ...product, totalQuantity: quantity }]);
@@ -31,10 +36,11 @@ const handleQuantity = (value) => {
   setQuantity(newQuantity);
 }
   if (!product) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>; // Displaying loading message if product data is not yet available
   }
 
   return (
+
     <div className="flex">
       <div className="w-1/2">
         <img src={product.image} alt={product.name} className="w-full h-auto" />
@@ -78,8 +84,10 @@ const handleQuantity = (value) => {
           <button
             className="bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
           >
+
             <AiFillHeart />
           </button>
+
         </div>
       </div>
     </div>
