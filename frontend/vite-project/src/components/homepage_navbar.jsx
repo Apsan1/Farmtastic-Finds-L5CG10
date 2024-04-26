@@ -4,6 +4,10 @@ import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import CartCount from './CartCount';
 
+
+
+
+
 // Function to handle click on the cart icon
 function handleCartClick() {
   console.log("Cart clicked");

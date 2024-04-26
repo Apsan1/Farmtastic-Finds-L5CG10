@@ -1,6 +1,8 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import get_object_or_404
+from rest_framework import filters
 from products.models import Products,Category
 from .serializers import ProductsSerializer,CategorySerializerAll
 
@@ -15,6 +17,23 @@ class CategoryDetail(generics.RetrieveDestroyAPIView):
 class ProductsList(generics.ListCreateAPIView):
     queryset=Products.objects.all()
     serializer_class= ProductsSerializer
+    search_field=['name','category']
+    filter_backends = (filters.SearchFilter,)
+    
+    def  get_queryset(self):
+       queryset=super().get_queryset()
+       search_query = self.request.query_params.get('search', None)  
+       if search_query:
+            # Check if the search query matches any category
+            category = Category.objects.filter(name__icontains=search_query).first()
+            if category:
+                # If category found, filter products by both name and category
+                queryset = queryset.filter(name__icontains=search_query) | \
+                           queryset.filter(category=category)
+            else:
+                # If no category found, only filter products by name
+                queryset = queryset.filter(name__icontains=search_query)
+       return queryset
    
 class ProductsDetail(generics.RetrieveDestroyAPIView):
     queryset=Products.objects.all()
