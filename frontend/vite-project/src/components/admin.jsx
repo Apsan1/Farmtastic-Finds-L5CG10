@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 const Admin = () => {
+    const [username,setUsername]=useState('');
+    const [password,setPassword]=useState('');
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+    
+        try {
+            const response = await fetch('http://127.0.0.1:8000/dashboard/login/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to log in');
+            }
+    
+            const data = await response.json();
+            console.log(data.message);
+            if(data.message==="Logged in successfully"){
+                window.location.href='/cart';
+            }
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    };
+    
     return (
         <div className="flex min-h-screen w-screen w-full items-center justify-center text-gray-600 bg-gray-50">
             <div className="relative">
@@ -14,16 +43,16 @@ const Admin = () => {
                             </a>
                         </div>
                         <h4 className="mb-2 font-medium text-gray-700 xl:text-xl">Welcome to Admin Dashboard!</h4>
-                        <form className="mb-4" action="#" method="POST">
+                        <form className="mb-4" onSubmit={handleLogin}>
                             <div className="mb-4">
-                                <label htmlFor="email" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">Username</label>
-                                <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg-gray-100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow" id="email" name="email-username" placeholder="Enter your username" autoFocus />
+                                <label htmlFor="username" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">Username</label>
+                                <input type="text" onChange={(e)=>setUsername(e.target.value)} className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg-gray-100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow" id="username" name="username" placeholder="Enter your username" autoFocus />
                             </div>
                             <div className="mb-4">
             
                             <div className="mb-4">
                                 <label htmlFor="password" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">Password</label>
-                                <input type="password" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg-gray-100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow" id="email" name="email-username" placeholder="*****" autoFocus />
+                                <input type="password" onChange={(e)=>setPassword(e.target.value)} className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg-gray-100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow" id="password" name="password" placeholder="*****" autoFocus />
                             </div>
                             </div>
 
