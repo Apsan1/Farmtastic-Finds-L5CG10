@@ -19,6 +19,12 @@ function ProductCard(props) {
   }
 // Function to handle adding product to cart
   const handleClick = () => {
+    const index = cartItems.findIndex(item => item.id === props.id);
+    if (index !== -1) {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems.splice(index, 1);
+    setCartItems(updatedCartItems);
+  }
     setCartItems(prev => [...prev, { ...props, totalQuantity: quantity }]);
   }
 
