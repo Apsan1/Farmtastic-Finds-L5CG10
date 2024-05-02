@@ -33,7 +33,7 @@ const CartCard = () => {
                                 <div className="pr-8 sm:pr-5">
                                     <p className="text-base font-semibold text-gray-900">{product.name}</p>
                                     <p className="mx-0 mt-1 mb-0 text-base font-semibold text-gray-900">${product.price}</p>
-                                    {/* <p className="mx-0 mt-1 mb-0 text-base font-semibold text-gray-900">Quantity: {product.quantity}</p> */}
+                                    <p className="mx-0 mt-1 mb-0 text-base font-semibold text-gray-900">Quantity: {product.totalQuantity}</p>
                                 </div>
                             </div>
                             <div className="absolute top-0 right-0 flex sm:bottom-0 sm:top-auto">
