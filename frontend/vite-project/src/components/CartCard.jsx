@@ -3,10 +3,6 @@ import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react
 
 import { CartContext } from "../context/cart";
 
-const cart = JSON.parse(localStorage.getItem("productData")) || [];
-
-//put the local storage data in the cart page to display the items which are added to the cart
-
 const CartCard = () => {
     const { cartItems, setCartItems } = useContext(CartContext);
 
@@ -17,29 +13,40 @@ const CartCard = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-bold my-4">Your Cart</h1>
-            {cartItems.map((product) => (
-    <div key={product.id} className="flex items-center justify-between w-1/2 p-4 gap-9">
-        <img src={product.img} alt={product.name} className="border-2 rounded-lg h-100 w-100 object-cover" />
-        <div>
-            <h2 className="text-xl font-semibold">{product.name}</h2>
-            <h3 className="text-xl font-light">${product.price}</h3>
-            {/* <h3 className="text-xl font-light">{product.quantity}</h3> */}
-        </div>
-        <button
-            className="bg-red-500 text-white px-4 py-2 rounded-lg"
-            onClick={() => removeFromCart(product)}
-        >
-            Remove
-        </button>
-    </div>
-   
-
-))}
-
+        <div className="container">
+            {cartItems.length === 0 ? (
+                <div className="relative flex flex-1 flex-col justify-between mb-10">
+                    <div className="sm:col-gap-5 sm:grid sm:grid-cols-2">
+                        <div className="pr-8 sm:pr-5">
+                            <p className="text-base font-semibold text-gray-900">NO ITEMS</p>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                cartItems.map((product) => (
+                    <div className="product-item" key={product.id}>
+                        <div className="shrink-0">
+                            <img className="h-24 w-24 max-w-full rounded-lg object-cover" src={product.img} alt={product.name}/>
+                        </div>
+                        <div className="relative flex flex-1 flex-col justify-between mb-10">
+                            <div className="sm:col-gap-5 sm:grid sm:grid-cols-2">
+                                <div className="pr-8 sm:pr-5">
+                                    <p className="text-base font-semibold text-gray-900">{product.name}</p>
+                                    <p className="mx-0 mt-1 mb-0 text-base font-semibold text-gray-900">${product.price}</p>
+                                    {/* <p className="mx-0 mt-1 mb-0 text-base font-semibold text-gray-900">Quantity: {product.quantity}</p> */}
+                                </div>
+                            </div>
+                            <div className="absolute top-0 right-0 flex sm:bottom-0 sm:top-auto">
+                                <button className="bg-red-500 text-white px-4 py-2 rounded-lg" onClick={() => removeFromCart(product)}>
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            )}
         </div>
     );
-}
+};
 
 export default CartCard;
