@@ -35,11 +35,13 @@ function ProductCard(props) {
   }
 // Return JSX for product card
   return (
-    <div className="border border-gray-300 border-2 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg-relative" onClick={() => handleClickProducts(id)}>
-      <img src={img} alt={name} style={{ height: "15em" }} />
-
-      <div className="space-y-2 relative p-4">
-        <div className="text-yellow-400 flex gap-[2px] text-[20px]">
+    <div className="shadow-lg rounded-xl border hover:border-gray-300 hover:scale-105 transition-transform"
+     onClick={() => handleClickProducts(id)}>
+      <div className="flex justify-center items-center">
+      <img src={img} alt={name} style={{ height: "250px"}} />
+      </div>
+      <div className="space-y-2 relative m-0 p-3 border-black border-1 rounded-b-lg">
+        <div className="text-yellow-400 flex">
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
@@ -47,8 +49,8 @@ function ProductCard(props) {
           <AiOutlineStar />
         </div>
         <h3 className="font-medium">{name}</h3>
-        <h3 className="text-2xl font-medium text-orange-600">{price}</h3>
-        <div className="flex items-center absolute -bottom-0 right-1">
+        <h3 className="text-2xl font-medium text-black-600">{price}</h3>
+        <div className="flex items-center absolute right-1">
           <button
             className="bg-accent text-white p-1 rounded-full grid place-items-center cursor-pointer"
             onClick={(e) => { e.stopPropagation(); handleQuantity(-1) }} // Prevent event propagation
@@ -63,19 +65,20 @@ function ProductCard(props) {
             +
           </button>
         </div>
+        <div className="pb-1">
         <button
           className="absolute -top-4 right-1 bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
           onClick={ (e) => { e.stopPropagation(); handleClick() } } // Prevent event propagation
         >
           <AiOutlineShopping />
         </button>
-
         <button
           className="absolute -top-4 right-14 bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
           onClick={ (e) => { e.stopPropagation(); handleWishlist() } } // Prevent event propagation
         >
           <AiFillHeart />
-        </button>
+        </button>        
+        </div>
       </div>
     </div>
   );
