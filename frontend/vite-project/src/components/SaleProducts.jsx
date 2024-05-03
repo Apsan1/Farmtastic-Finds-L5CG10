@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import ProductCard from "./ProductCard";
 import {fetchProducts, fetchProductsByCategory}  from "./fetchproducts.jsx";
+import { Categorybreadcrum } from "./breadcrumbs/breadcrumbs.jsx";
 
 const SaleProducts = () => {
   const [products, setProducts] = useState([]);
@@ -38,7 +39,10 @@ export const SaleProductsFilteredByCategory = () => {
   if (products.length === 0) {
     return <div>No Products in This Category</div>;
   }
+  const categoryArr = category.split("-");
   return (
+    <>
+    <Categorybreadcrum category={categoryArr} />      {/*Passing category name here*/}
     <div className="container pt-16">
       <div className="lg:flex justify-between items-center">
       </div>
@@ -49,6 +53,7 @@ export const SaleProductsFilteredByCategory = () => {
         ))}
       </div>
     </div>
+    </>
   );
 }
 
