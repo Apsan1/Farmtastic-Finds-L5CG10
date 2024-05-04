@@ -23,7 +23,7 @@ const Breadcrum = (props) => {
     const {product} =props;
   return (
     <>
-    <div className="flex flex-row items-center gap-2">
+    <div className="flex flex-row items-center gap-2 px-5">
     <button onClick={()=>onclickHome()}>Home</button><BiRightArrowAlt/>
     <button onClick={()=>onclickShop()}>Shop</button> <BiRightArrowAlt/>
     <button onClick={()=>onclickCatalog(product.category)}>{product.category}</button><BiRightArrowAlt/>
@@ -38,7 +38,7 @@ export const Categorybreadcrum = (props) => {
   const name = category[0];
   return (
     <>
-    <div className="flex flex-row items-center gap-2">
+    <div className="flex flex-row items-center gap-2 px-5">
     <button onClick={()=>onclickHome()}>Home</button><BiRightArrowAlt/>
     <button onClick={()=>onclickShop()}>Shop</button> <BiRightArrowAlt/>
     <button onClick={()=>onclickCatalog(name)}>{name}</button></div>
@@ -49,7 +49,7 @@ export const Categorybreadcrum = (props) => {
 export const Shopbreadcrum = () => {
   return (
     <>
-    <div className="flex flex-row items-center gap-2">
+    <div className="flex flex-row items-center gap-2 px-5">
     <button onClick={()=>onclickHome()}>Home</button><BiRightArrowAlt/>
     <button onClick={()=>onclickShop()}>Shop</button></div>
     </>
