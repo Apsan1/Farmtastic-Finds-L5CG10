@@ -20,9 +20,9 @@ function handleLogoClick(){
 const HomepageNavbar = () => {
   return (
     <div className="sticky top-0 bg-white z-10">
-      <div className="container lg:block">
-        <div className="flex justify-between items-center py-4">
-          <h1 className="text-4xl font-medium cursor-pointer" onClick={handleLogoClick}>Farmtastic Finds</h1>
+      <div className="container md:block mb-4">
+        <div className="flex justify-between items-center py-2">
+          <h1 className="text-3xl font-medium cursor-pointer" onClick={handleLogoClick}>Farmtastic Finds</h1>
           <div className="relative w-full max-w-[500px]">
 
             <input
@@ -34,10 +34,10 @@ const HomepageNavbar = () => {
           </div>
 
           <div className="flex gap-2 lg:gap-4">
-            <button className="p-2 rounded-full flex justify-center items-center shadow-3xl h-10 w-10 transition:transform hover:scale-110">
+            <button className="p-3 rounded-full flex justify-center items-center shadow-3xl h-10 w-10 transition:transform hover:scale-110">
               <FaHeart className="text-2xl text-red-600"/>
             </button>
-            <button className="p-2 rounded-full flex justify-center items-center shadow-3xl h-10 w-10 relative transition:transform hover:scale-110" onClick={handleCartClick}>
+            <button className="p-3 rounded-full flex justify-center items-center shadow-3xl h-10 w-10 relative transition:transform hover:scale-110" onClick={handleCartClick}>
               <AiOutlineShoppingCart className="text-3xl" />
               <CartCount size="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]" />
             </button>
