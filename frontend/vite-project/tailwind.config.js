@@ -6,7 +6,9 @@ export default {
   ],
   theme: {
     extend: {
-
+      boxShadow: {
+        '3xl': '0 8px 15px -5px rgba(0, 0, 1, 0.4)',
+      },
       dropShadow: {
         'custom': '0 0 2px 2px rgba(1, 1, 1, 1)',
         'lightShadow': '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -19,8 +21,8 @@ export default {
       },
 
       colors:{
-        accent:"#179957",
-        accentDark:"#184D47",
+        accent:"#000000",
+        accentDark:"",
         naturalGreen: "#1c3305",
         neutralBlack: "#1E1502",
       },

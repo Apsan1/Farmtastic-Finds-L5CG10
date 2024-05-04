@@ -13,10 +13,10 @@ const SaleProducts = () => {
   }, []);
 
   return (
-    <div className="container pt-16">
+    <div className="container pt-3 mb-10">
       <div className="lg:flex justify-between items-center">
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-3 pt-8 gap-6 relative">
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-3 gap-6 relative">
         {products.map(product => 
         (
           <ProductCard key={product.id} id={product.id} img={product.imageSrc} name={product.name} price={product.price+ "/kg"} />
@@ -43,10 +43,10 @@ export const SaleProductsFilteredByCategory = () => {
   return (
     <>
     <Categorybreadcrum category={categoryArr} />      {/*Passing category name here*/}
-    <div className="container pt-16">
+    <div className="container pt-0 mb-10">
       <div className="lg:flex justify-between items-center">
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-3 pt-8 gap-6 relative">
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-3 pt-3 gap-6 relative">
         {products.map(product => 
         (
           <ProductCard key={product.id} id={product.id} img={product.image} name={product.name} price={product.price+ "/kg"} />
