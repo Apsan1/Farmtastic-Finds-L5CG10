@@ -1,6 +1,6 @@
 import React from 'react'
 import './breadcrumbs.css'
-import { BiArrowFromLeft } from 'react-icons/bi';
+import { BiRightArrowAlt } from 'react-icons/bi';
 
 
 function onclickCatalog (category) {
@@ -24,9 +24,9 @@ const Breadcrum = (props) => {
   return (
     <>
     <div className="flex flex-row items-center gap-2">
-    <button onClick={()=>onclickHome()}>Home</button><BiArrowFromLeft/> 
-    <button onClick={()=>onclickShop()}>Shop</button> <BiArrowFromLeft/>
-    <button onClick={()=>onclickCatalog(product.category)}>{product.category}</button><BiArrowFromLeft/>
+    <button onClick={()=>onclickHome()}>Home</button><BiRightArrowAlt/>
+    <button onClick={()=>onclickShop()}>Shop</button> <BiRightArrowAlt/>
+    <button onClick={()=>onclickCatalog(product.category)}>{product.category}</button><BiRightArrowAlt/>
     <button onClick={()=>onclickProduct(product)}>{product.name}</button> 
     </div>
     </>
@@ -39,9 +39,19 @@ export const Categorybreadcrum = (props) => {
   return (
     <>
     <div className="flex flex-row items-center gap-2">
-    <button onClick={()=>onclickHome()}>Home</button><BiArrowFromLeft/>
-    <button onClick={()=>onclickShop()}>Shop</button> <BiArrowFromLeft/>
+    <button onClick={()=>onclickHome()}>Home</button><BiRightArrowAlt/>
+    <button onClick={()=>onclickShop()}>Shop</button> <BiRightArrowAlt/>
     <button onClick={()=>onclickCatalog(name)}>{name}</button></div>
+    </>
+  )
+}
+
+export const Shopbreadcrum = () => {
+  return (
+    <>
+    <div className="flex flex-row items-center gap-2">
+    <button onClick={()=>onclickHome()}>Home</button><BiRightArrowAlt/>
+    <button onClick={()=>onclickShop()}>Shop</button></div>
     </>
   )
 }
