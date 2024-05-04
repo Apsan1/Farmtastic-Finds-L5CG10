@@ -41,7 +41,7 @@ const Cart = () => {
     <h1 className="text-2xl font-semibold text-gray-900">My Cart</h1>
   </div>
   <div className="mt-0 md:mt-3 flex flex-row gap-10">
-    <div className="bg-white w-full h-[75vh] shadow-2xl rounded-lg ml-0 overflow-y-auto">
+    <div className="bg-white w-90% h-[75vh] shadow-2xl rounded-lg ml-0 overflow-y-auto">
           <ul className="-my-2">
             <li className="flex flex-col py-6 text-left sm:flex-row sm:space-x-5 sm:space-y-0">
               <CartCard />
@@ -49,7 +49,7 @@ const Cart = () => {
           </ul>
     </div>
     <div className="w-[500px] justify-center">
-      <div className="flex items-center justify-start flex-row">
+      <div className="flex items-center justify-center flex-row">
         <p className="text-3xl font-medium text-gray-900">Total: </p>
         <p className="ml-2 text-2xl font-semibold text-gray-900">
           <span className="text-s font-bold text-gray-400">$</span>
