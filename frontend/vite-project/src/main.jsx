@@ -13,6 +13,7 @@ import Cart from './cart.jsx';
 import ProductDetails from './ProductDetails.jsx';
 import { SaleProductsFilteredByCategory } from './components/SaleProducts.jsx';
 import Admin from './components/admin.jsx';
+import Dashboard from './admin_dashboard.jsx';
 
 const RouterPaths = () => {
   return (
@@ -24,6 +25,7 @@ const RouterPaths = () => {
         <Route path="/admin/login" element={<AdminComponent />} />
         <Route path="/product/:id" element={<ProductDetailsComponent />} />
         <Route path="/category/:category" element={<SaleProductsFilteredByCategoryComponent />} />
+        <Route path="/dashboard" element={<DashboardComponent />} />
       </Routes>
     </Router>
   )
@@ -91,5 +93,13 @@ const AdminComponent=()=>{
     </React.StrictMode>
   )
 }
+const DashboardComponent=()=>{
+  return(
+    <React.StrictMode>
+      <Dashboard />
+    </React.StrictMode>
+  )
+}
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(<RouterPaths />);

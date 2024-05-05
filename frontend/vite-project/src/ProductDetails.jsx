@@ -4,6 +4,7 @@ import { fetchById } from './components/fetchproducts';
 import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
 import { CartContext } from './context/cart';
 import Breadcrum from './components/breadcrumbs/breadcrumbs';
+import Carosules from './components/Carosules';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -45,6 +46,9 @@ const handleQuantity = (value) => {
     <div className="flex">
       <div className="w-1/2">
         <img src={product.image} alt={product.name} className="w-full h-auto" />
+        <h1 className="pl-12">Related Products</h1>
+        <Carosules />
+      
       </div>
       <div className="w-1/2 p-4">
         <p className="text-xl font-bold mb-2">{product.name}</p>
@@ -62,14 +66,14 @@ const handleQuantity = (value) => {
         <p className="text-lg mb-2">Select Quantity:</p>
         <div className="flex items-center">
           <button
-            className="bg-accent text-white p-1 rounded-full grid place-items-center cursor-pointer mr-2"
+            className="bg-green-700 text-white p-1 rounded-full grid place-items-center cursor-pointer mr-2"
             onClick={(e) => { e.stopPropagation(); handleQuantity(-1) }}
           >
             -
           </button>
          <p>{quantity} </p>
           <button
-            className="bg-accent text-white p-1 rounded-full grid place-items-center cursor-pointer ml-2"
+            className="bg-green-700 text-white p-1 rounded-full grid place-items-center cursor-pointer ml-2"
             onClick={(e) => { e.stopPropagation(); handleQuantity(1) }}
          >
             +
@@ -77,19 +81,20 @@ const handleQuantity = (value) => {
         </div>
         <div className="flex items-center mt-3">
           <button
-            className="bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer mr-2"
+            className="bg-green-700 text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer mr-2"
             onClick={() => addtoCart()}
           >
             <AiOutlineShopping />
           </button>
           <button
-            className="bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
+            className="bg-green-700 text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
           >
 
             <AiFillHeart />
           </button>
 
         </div>
+        
       </div>
     </div>
     </>
