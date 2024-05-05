@@ -1,57 +1,88 @@
-import React from "react";
+import {useEffect} from "react";
 import CartCard from "./components/CartCard.jsx";
 
 function handleShopClick() {
-    console.log("Shop clicked");
-    window.location.href = "/shop";
+  console.log("Shop clicked");
+  window.location.href = "/shop";
 }
 
 function fetchTotal() {
-    const cart = JSON.parse(localStorage.getItem("productData")) || [];
-    let total = 0;
-    cart.forEach((product) => {
-        //remove /kg from the price
-        const price = product.price.replace("/kg", "");
-        total += parseInt(price);
-    });
-    return total;
+  const cart = JSON.parse(localStorage.getItem("productData")) || [];
+  let total = 0;
+  cart.forEach((product) => {
+    //remove /kg from the price
+    const price = product.price.replace("/kg", "");
+    total += parseInt(price);
+  });
+  return total;
 }
 
 const Cart = () => {
-    const total = fetchTotal();
-    return (
-        <div className="container pt-16">
-            <div className="space-x-4 mt:8 lg:mt-0">
-                    <button className="trending_btn" onClick={handleShopClick} >Back</button>
-                </div>
-                <div className="flex items-center justify-center">
-      <h1 className="text-2xl font-semibold text-gray-900">My Cart</h1>
+  const total = fetchTotal();
+  useEffect(() => {
+    // Apply overflow: hidden to the body element when the component mounts
+    document.body.style.overflow = "hidden";
+
+    // Remove overflow: hidden from the body element when the component unmounts
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, []); // Run this effect only once when the component mounts
+
+  return (
+    <>
+    <div className="w-auto ml-10 pt-3 pb-10">
+  <div className="lg:mt-0">
+    <button className="trending_btn" onClick={handleShopClick}>
+      Back
+    </button>
+  </div>
+  <div className="flex items-center justify-center">
+    <h1 className="text-2xl font-semibold text-gray-900">My Cart</h1>
+  </div>
+  <div className="mt-0 md:mt-3 flex flex-row gap-10">
+    <div className="bg-white w-90% h-[75vh] shadow-2xl rounded-lg ml-0 overflow-y-auto">
+          <ul className="-my-2">
+            <li className="flex flex-col py-6 text-left sm:flex-row sm:space-x-5 sm:space-y-0">
+              <CartCard />
+            </li>
+          </ul>
     </div>
-          <div className="mx-auto mt-8 max-w-2xl md:mt-12">
-      <div className="bg-white shadow">
-        <div className="px-4 py-6 sm:px-8 sm:py-10">
-          <div className="flow-root">
-            <ul className="-my-8">
-              <li className="flex flex-col space-y-4 py-6 text-left sm:flex-row sm:space-x-5 sm:space-y-0">
-                <CartCard/></li>  </ul>
-          </div>
-        </div>
-        </div>
-        <div className="mt-6 flex items-center justify-between">
-            <p className="text-sm font-medium text-gray-900">Total</p>
-            <p className="text-2xl font-semibold text-gray-900"><span className="text-s font-bold text-gray-400">$</span>{total}</p>
-          </div>
-          <div className="mt-6 text-center">
-            <button type="button" className="group inline-flex w-full items-center justify-center rounded-md trending_btn px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:trending__btn">
-              Checkout
-              <svg xmlns="http://www.w3.org/2000/svg" className="group-hover:ml-8 ml-4 h-6 w-6 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        </div>
-    );
-}
+    <div className="w-[500px] justify-center">
+      <div className="flex items-center justify-center flex-row">
+        <p className="text-3xl font-medium text-gray-900">Total: </p>
+        <p className="ml-2 text-2xl font-semibold text-gray-900">
+          <span className="text-s font-bold text-gray-400">$</span>
+          {total}
+        </p>
+      </div>
+      <div className="mt-6 text-center">
+        <button
+          type="button"
+          className="group inline-flex w-60 items-center justify-center rounded-md trending_btn px-10 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:trending__btn"
+        >
+          Checkout
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="group-hover:ml-8 ml-4 h-6 w-6 transition-all"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+    </>
+  );
+};
 
 export default Cart;

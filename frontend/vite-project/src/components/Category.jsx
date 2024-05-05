@@ -20,7 +20,7 @@ const Category = () => {
 
   return (
     <div className="container">
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className=" px-40 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-5">
         {categoryData.map((el, index) => (
           <CategoryCard 
             key={index}

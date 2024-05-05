@@ -34,7 +34,6 @@ const MainComponent = () => {
     <React.StrictMode>
       <CartProviders>
         <Homepage_navbar />
-        <Mob_homepage_nav />
         <VideoBackground />
         <Hero />
         <Footer />
@@ -57,6 +56,7 @@ const CartComponent = () => {
   return (
     <React.StrictMode>
       <CartProviders>
+      <Homepage_navbar />
         <Cart />
       </CartProviders>
     </React.StrictMode>
