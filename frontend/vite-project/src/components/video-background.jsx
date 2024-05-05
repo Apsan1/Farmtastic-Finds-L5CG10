@@ -4,7 +4,7 @@ const VideoBackground = () => {
     return (
         <div className="video-intro inline-block">
         <video
-        className="top-0 left-0 w-[100vw] h-[90vh] object-cover z-[-1]"
+        className="top-0 left-0 w-[100vw] h-[93vh] object-cover z-[-1]"
         autoPlay
         loop
         muted

@@ -27,7 +27,7 @@ const Hero = () => {
         <div className="flex items-center justify-center">
           <button
             onClick={handleShopNow} // Calling the handleShopNow function when button is clicked
-            className="flex items-center justify-center px-4 py-2 mt-4 text-lg font-semibold text-white bg-accent rounded-md"
+            className="transition-transform hover:scale-110 flex items-center justify-center px-4 py-2 mt-4 text-lg font-semibold text-white bg-accent rounded-md"
           >
             Shop Now <BsArrowRight className="ml-2" /> {/* Arrow icon */}
           </button>

@@ -54,20 +54,20 @@ function ProductCard(props) {
         <img
             src={img}
             alt={name}
-            className="object-contain max-w-full max-h-full rounded-lg"
+            className="object-cover w-[200px] h-[200px] max-w-full max-h-full rounded-md"
           />
         </div>
       </div>
       <div className="relative m-0 p-3 w-full bg-white border-b border-l border-r border-gray-200 rounded-b-md">
-        <div className="text-yellow-400 flex">
+        {/* <div className="text-yellow-400 flex">
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
           <AiOutlineStar />
-        </div>
-        <h3 className="font-medium">{name}</h3>
-        <h3 className="text-2xl font-medium text-black-600">{price}</h3>
+        </div> */}
+        <h3 className="text-md font-semibold text-black-600">{price}</h3>
+        <h3 className="font-base text-md w-50 text-gray-500">{name}</h3>
         <div className="flex flex-row items-center justify-end">
           {/* Quantity Buttons */}
           <button
@@ -94,7 +94,7 @@ function ProductCard(props) {
         {/*  Add to cart and wishlist buttons */}
         <div className="pb-1">
           <button
-            className="transition-transform hover:scale-110 absolute shadow-3xl -top-0 right-1 bg-white text-black text-[25px] w-[45px] h-[45px] rounded-full grid place-items-center"
+            className="transition-transform hover:scale-110 absolute shadow-3xl -top-0 right-1 bg-white text-black text-[22px] w-[40px] h-[40px] rounded-full grid place-items-center"
             onClick={(e) => {
               e.stopPropagation();
               handleClick();
@@ -105,7 +105,7 @@ function ProductCard(props) {
             {addCartIsHovered? <AiFillShopping /> : <AiOutlineShopping />}
           </button>
           <button
-            className="transition-transform hover:scale-110 absolute shadow-3xl -top-0 right-14 bg-white text-black text-[29px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
+            className="transition-transform hover:scale-110 absolute shadow-3xl -top-0 right-12 bg-white text-black text-[22px] w-[40px] h-[40px] rounded-full grid place-items-center cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               handleWishlist();

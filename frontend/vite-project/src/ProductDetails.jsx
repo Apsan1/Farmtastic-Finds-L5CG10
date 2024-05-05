@@ -47,18 +47,20 @@ const handleQuantity = (value) => {
         <img src={product.image} alt={product.name} className="w-full h-auto" />
       </div>
       <div className="w-1/2 p-4">
-        <p className="text-xl font-bold mb-2">{product.name}</p>
-        <p className="text-md mb-2 text-gray-500">Fruits</p>
-        <div className="text-yellow-400 flex gap-[2px] text-[20px]">
+        <p className="text-2xl font-bold mb-2">{product.name}</p>
+        <p className="text-md mb-2 text-gray-500">{product.category}</p>
+        {/* <div className="text-yellow-400 flex gap-[2px] text-[20px]">
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
           <AiOutlineStar />
-        </div>
+        </div> */}
         <p className="text-xl mb-2 text-orange-600">Rs. {product.price}/kg</p>
-        <p className="text-lg mb-3">Description:</p>
-        <p className="text-lg mb-2">{product.description}</p>
+        <p className="text-lg mb-3 text-gray-700">Description:</p>
+        <div className="w-[400px] h-[200px] bg-white shadow-md mb-3 px-4 py-2 rounded-lg">
+        <p className="text-normal mb-2 text-gray-500">{product.description}</p>
+        </div>
         <p className="text-lg mb-2">Select Quantity:</p>
         <div className="flex items-center">
           <button

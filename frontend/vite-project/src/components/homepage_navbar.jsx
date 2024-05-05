@@ -20,11 +20,10 @@ function handleLogoClick(){
 const HomepageNavbar = () => {
   return (
     <div className="sticky top-0 bg-white z-10">
-      <div className="container md:block mb-4">
-        <div className="flex justify-between items-center py-2">
+      <div className="container md:block">
+        <div className="flex flex-row justify-between items-center py-2">
           <h1 className="text-3xl font-medium cursor-pointer" onClick={handleLogoClick}>Farmtastic Finds</h1>
           <div className="relative w-full max-w-[500px]">
-
             <input
               className="bg-[#f2f3f5] border-none outline-none px-6 py-2 rounded-[20px] w-full text-sm sm:text-base  text-left"
               type="text"
@@ -33,11 +32,11 @@ const HomepageNavbar = () => {
             <BsSearch className="absolute top-0 right-0 mt-3 mr-6 text-gray-500" size={18} />
           </div>
 
-          <div className="flex gap-2 lg:gap-4">
+          <div className="flex items-center gap-0 lg:gap-0 right-1">
             {/* <button className="p-3 rounded-full flex justify-center items-center shadow-3xl h-10 w-10 transition:transform hover:scale-110">
               <FaHeart className="text-2xl text-red-600"/>
             </button> */}
-            <button className="p-2 rounded-full flex justify-center items-center shadow-3xl h-10 w-10 relative transition:transform hover:scale-110" onClick={handleCartClick}>
+            <button className="p-2 rounded-full flex justify-end items-center shadow-3xl h-10 w-10 relative transition:transform hover:scale-110" onClick={handleCartClick}>
               <AiOutlineShoppingCart className="text-4xl" />
               <CartCount size="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]" />
             </button>
