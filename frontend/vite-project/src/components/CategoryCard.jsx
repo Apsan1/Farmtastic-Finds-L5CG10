@@ -12,7 +12,7 @@ const CategoryCard = ({ img, name, count }) => {
         </div>
 
         <div className="flex w-100 h-50 justify-center items-center p-5">
-          <img className="object-contain max-w-full max-h-full rounded-lg" src={img} alt={name} />
+          <img className="object-cover w-[250px] h-[150px] max-w-full max-h-full rounded-lg" src={img} alt={name} />
         </div>
         </div>
       </div>
