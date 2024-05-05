@@ -4,7 +4,8 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework import filters
 from products.models import Products,Category
-from .serializers import ProductsSerializer,CategorySerializerAll
+from . models import Order
+from .serializers import ProductsSerializer,CategorySerializerAll,OrderSerializer
 
 class CategoryList(generics.ListCreateAPIView):
     queryset=Category.objects.all()
@@ -35,7 +36,7 @@ class ProductsList(generics.ListCreateAPIView):
                 queryset = queryset.filter(name__icontains=search_query)
        return queryset
    
-class ProductsDetail(generics.RetrieveDestroyAPIView):
+class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset=Products.objects.all()
     serializer_class= ProductsSerializer
     
@@ -45,3 +46,12 @@ class ProductsDeleteAll(generics.DestroyAPIView):
     def delete(self, request, *args, **kwargs):
         self.queryset.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)   
+    
+    
+class OrdersList(generics.ListCreateAPIView):
+    queryset=Order.objects.all()
+    serializer_class= OrderSerializer 
+    
+class OrdersDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset=Order.objects.all()
+    serializer_class= OrderSerializer     
