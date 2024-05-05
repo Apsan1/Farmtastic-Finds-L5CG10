@@ -16,6 +16,7 @@ const CategoryCard = ({ img, name, count }) => {
         </div>
         </div>
       </div>
+
     );
   };
   
