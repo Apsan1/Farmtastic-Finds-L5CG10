@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "products",
     'products_api',
     'login',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -131,13 +132,10 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.AllowAny',
     ]
 }
 
-CORS_ALLOWED_ORIGINS=[
-    'http://localhost:3030',
-]
 CORS_ALLOW_ALL_ORIGINS = True
 
 # Default primary key field type
