@@ -46,11 +46,11 @@ function ProductCard(props) {
   // Return JSX for product card
   return (
     <div
-      className="shadow-lg border-gray-150 border-2 rounded-md hover:scale-105 transition-transform h-80 relative"
+      className="shadow-lg rounded-md hover:scale-105 transition-transform h-80 relative"
       onClick={() => handleClickProducts(id)}
     >
       <div className="flex justify-center items-center h-60">
-        <div className="p-0 w-full h-full flex justify-center items-center">
+        <div className="p-0 w-full h-full flex justify-center items-center bg-white">
         <img
             src={img}
             alt={name}
@@ -58,7 +58,7 @@ function ProductCard(props) {
           />
         </div>
       </div>
-      <div className="relative m-0 p-3 w-full bg-white border-b border-l border-r border-gray-200 rounded-b-md">
+      <div className="relative p-3 w-full bg-white rounded-b-md">
         {/* <div className="text-yellow-400 flex">
           <AiFillStar />
           <AiFillStar />
