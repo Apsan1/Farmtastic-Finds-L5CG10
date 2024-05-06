@@ -23,7 +23,6 @@ const RouterPaths = () => {
         <Route path="/shop" element={<ShopComponent />} />
         <Route path="/cart" element={<CartComponent />} />
         <Route path="/admin/login" element={<AdminComponent />} />
-        <Route path="/checkout" element={<CheckoutComponent />} />
         <Route path="/product/:id" element={<ProductDetailsComponent />} />
         <Route path="/category/:category" element={<SaleProductsFilteredByCategoryComponent />} />
         <Route path="/search/:search" element={<SearchPageComponent />} />
