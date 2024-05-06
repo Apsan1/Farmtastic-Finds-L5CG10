@@ -69,7 +69,7 @@ export const SaleProductsFilteredBySearch = () => {
 
   useEffect(() => {
     fetchProductsBySearch(search).then(data =>
-      setProducts(data.filter(product => product.name.toLowerCase().includes(search.toLowerCase()))));
+      setProducts(data));
   }, [search]);
   if (products.length === 0 || products === undefined || products === null) {
     
