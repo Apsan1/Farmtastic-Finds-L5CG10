@@ -93,7 +93,6 @@ export async function fetchProductsBySearch(search) {
       throw new Error('Failed to fetch data');
     }
     const data = await response.json();
-    console.log(data);
     return data;
   }
   catch (error) {
