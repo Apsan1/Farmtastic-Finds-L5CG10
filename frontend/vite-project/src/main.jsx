@@ -6,14 +6,13 @@ import Hero from './components/Hero.jsx';
 import Homepage_navbar from "./components/homepage_navbar";
 import Mob_homepage_nav from "./components/Mob_homepage_nav.jsx";
 import { CartProviders } from './context/cart.jsx';
-import Shoppage from './shoppage.jsx';
+import Shoppage  from './shoppage.jsx';
 import VideoBackground from './components/video-background.jsx';
 import Footer from './components/footer.jsx';
 import Cart from './cart.jsx';
 import ProductDetails from './ProductDetails.jsx';
 import { SaleProductsFilteredByCategory } from './components/SaleProducts.jsx';
 import Admin from './components/admin.jsx';
-import Checkout from './components/checkout.jsx';
 
 const RouterPaths = () => {
   return (
@@ -26,6 +25,7 @@ const RouterPaths = () => {
         <Route path="/checkout" element={<CheckoutComponent />} />
         <Route path="/product/:id" element={<ProductDetailsComponent />} />
         <Route path="/category/:category" element={<SaleProductsFilteredByCategoryComponent />} />
+        <Route path="/search/:search" element={<SearchPageComponent />} />
       </Routes>
     </Router>
   )
@@ -93,13 +93,5 @@ const AdminComponent=()=>{
     </React.StrictMode>
   )
 }
-const CheckoutComponent=()=>{
-  return(
-    <React.StrictMode>
-      <Checkout></Checkout>
-    </React.StrictMode>
-  )
-}
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(<RouterPaths />);
