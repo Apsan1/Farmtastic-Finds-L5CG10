@@ -48,57 +48,65 @@ const handleQuantity = (value) => {
     // breadcrumb
     <>
     <Breadcrum product={product} /> {/*Passing product name here*/}
-    <div className="flex">
-      <div className="w-1/2">
-        <img src={product.image} alt={product.name} className="w-full h-auto" />
+    <div className="product-detail grid grid-cols-2 gap-y-0 justify-center px-20 w-full h-[90.4vh]"
+      style={{backgroundImage: "linear-gradient(to right top, #ececec, #f1f1f1, #f5f5f5, #fafafa, #ffffff)"}}
+    > 
+      <div className="col-span-1 justify-center mt-4">
+        <img src={product.image} alt={product.name} className="object-cover w-[600px] h-[600px]" />
       </div>
-      <div className="w-1/2 p-4">
-        <p className="text-2xl font-bold mb-2">{product.name}</p>
-        <p className="text-md mb-2 text-gray-500">{product.category}</p>
-        {/* <div className="text-yellow-400 flex gap-[2px] text-[20px]">
+      <div className="col-span-1 flex flex-col justify-center gap-2">
+        <p className="text-3xl font-semibold">{product.name}</p>
+        <p className="text-xl text-gray-800">{product.category}</p>
+        <div className="text-yellow-400 flex gap-[2px] text-[20px]">
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
           <AiOutlineStar />
-        </div> */}
-        <p className="text-xl mb-2 text-orange-600">Rs. {product.price}/kg</p>
-        <p className="text-lg mb-3 text-gray-700">Description:</p>
-        <div className="w-[400px] h-[200px] bg-white shadow-md mb-3 px-4 py-2 rounded-lg">
-        <p className="text-normal mb-2 text-gray-500">{product.description}</p>
         </div>
-        <p className="text-lg mb-2">Select Quantity:</p>
-        <div className="flex items-center">
+        <div className="quantity flex items-center flex-row gap-3">
+        <p className="font-medium text-medium ">Select Quantity:</p>
+        <div className="flex items-center flex-row w-16 border-2 border-gray-600 rounded-md gap-2">
           <button
-            className="bg-accent text-white p-1 rounded-full grid place-items-center cursor-pointer mr-2"
+            className="text-black p-1 grid place-items-center cursor-pointer"
             onClick={(e) => { e.stopPropagation(); handleQuantity(-1) }}
           >
             -
           </button>
          <p>{quantity} </p>
           <button
-            className="bg-accent text-white p-1 rounded-full grid place-items-center cursor-pointer ml-2"
+            className="text-black p-1 grid place-items-center cursor-pointer"
             onClick={(e) => { e.stopPropagation(); handleQuantity(1) }}
          >
             +
           </button>
         </div>
-        <div className="flex items-center mt-3">
+        </div>
+        <p className="text-3xl font-medium mb-2 text-black"> <span className='text-2xl'>Rs</span> {product.price % 1 === 0 ? parseInt(product.price) : product.price} <span className='text-base text-gray-500'>per KG</span></p>
+        <div className="w-[400px] h-auto py-2">
+        <p className="text-normal text-gray-800">{product.description}</p>
+        </div>
+        <div className="flex items-center mt-1 flex-row gap-4">
           <button
-            className="bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer mr-2"
+            className="bg-accent text-white text-base w-[200px] h-[50px] rounded-md grid items-center justify-center p-3 cursor-pointer"
             onClick={() => addtoCart()}
           >
-            <AiOutlineShopping />
+            Add To Cart
           </button>
           <button
-            className="bg-accent text-white text-[28px] w-[45px] h-[45px] rounded-full grid place-items-center cursor-pointer"
+            className="bg-white text-accent border-2 border-black text-base w-[200px] h-[50px] rounded-md grid items-center justify-center p-3 cursor-pointer"
           >
-
-            <AiFillHeart />
+            Add To Wishlist
           </button>
 
         </div>
+        <div className="carousel">
+        <h1>Related Products</h1>
+        {/* Add Carousel here */}
+        Carousel here
       </div>
+      </div>
+
     </div>
     </>
   );
