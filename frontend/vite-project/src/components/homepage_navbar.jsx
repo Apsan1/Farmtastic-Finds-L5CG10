@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BsSearch } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -18,6 +18,19 @@ function handleLogoClick(){
 }
 // Return JSX for the homepage navbar
 const HomepageNavbar = () => {
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleInputChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (searchValue === '' || searchValue === null || searchValue === undefined) {
+      return;
+    }
+    window.location.href = `/search/${searchValue}`; // Redirects to the search page
+  };
+
   return (
     <div className="sticky top-0 bg-white z-10">
       <div className="container md:block">
@@ -25,11 +38,19 @@ const HomepageNavbar = () => {
           <h1 className="text-3xl font-medium cursor-pointer" onClick={handleLogoClick}>Farmtastic Finds</h1>
           <div className="relative w-full max-w-[500px]">
             <input
-              className="bg-[#f2f3f5] border-none outline-none px-6 py-2 rounded-[20px] w-full text-sm sm:text-base  text-left"
+              className="bg-[#f2f3f3] border-none outline-none px-6 py-2 rounded-[20px] w-full text-sm sm:text-base  text-left"
               type="text"
               placeholder="Search product.."
+              onChange={handleInputChange}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSubmit();
+                }
+              }}
             />
-            <BsSearch className="absolute top-0 right-0 mt-3 mr-6 text-gray-500" size={18} />
+            <button>
+            <BsSearch className="absolute top-0 right-0 mt-3 mr-6 text-gray-500" size={18} onClick={handleSubmit} />
+                        </button>
           </div>
 
           <div className="flex items-center gap-0 lg:gap-0 right-1">
@@ -44,6 +65,12 @@ const HomepageNavbar = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const searchProductsCard = (props) => {
+  return(
+    <></>
   );
 };
 

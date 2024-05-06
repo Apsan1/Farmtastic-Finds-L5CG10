@@ -56,4 +56,16 @@ export const Shopbreadcrum = () => {
   )
 }
 
+export const Searchbreadcrum = (props) => {
+  const {search} = props;
+  return (
+    <>
+    <div className="flex flex-row text-sm font-light items-center gap-1 px-5">
+    <button className='transition-tranform hover:scale-105' onClick={()=>onclickHome()}>Home</button><p className='text-gray-400 text-xs'>/</p>
+    <button className='transition-tranform hover:scale-105' onClick={()=>onclickShop()}>Shop</button><p className='text-gray-400 text-xs'>/</p>
+    <button className='transition-tranform hover:scale-105' onClick={()=>onclickShop()}>{search}</button></div>
+    </>
+  )
+}
+
 export default Breadcrum
