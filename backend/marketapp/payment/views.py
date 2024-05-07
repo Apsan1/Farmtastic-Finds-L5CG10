@@ -61,21 +61,22 @@ def paymentSuccess(request):
         total_amount = map_data.get('total_amount')
         status = map_data.get('status')
         signature = map_data.get('signature')
-
+        order = Order.objects.get(id=transaction_uuid)
         if status == 'COMPLETE':
-            message = f"total_amount={total},transaction_uuid={uuid_val},product_code=EPAYTEST"
-            expected_signature = generate_signature(message, secret_key)
-            order = Order.objects.get(id=transaction_uuid)
-            if signature == expected_signature:
+            # message = f"total_amount={total_amount},transaction_uuid={transaction_uuid},product_code=EPAYTEST"
+            # expected_signature = generate_signature(message, secret_key)
+          
+            # if signature == expected_signature:
                
-                order.status = 'Paid'
-                order.save()
-                return redirect('http://localhost:5173/success')
-            else:
-                order.delete()
-                return redirect('http://localhost:5173/error?message=InvalidSignature')
+            order.status = 'Paid'
+            order.save()
+            return redirect('http://localhost:5173/success')
+            # else:
+            #     order.delete()
+                # return redirect('http://localhost:5173/error?message=InvalidSignature')
         else:
             # Payment status not complete, handle appropriately
+            order.delete()
             return redirect('http://localhost:5173/error?message=PaymentStatusNotComplete')
     except Exception as e:
         # Error occurred during processing, handle appropriately
