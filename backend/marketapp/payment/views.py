@@ -63,7 +63,7 @@ def paymentSuccess(request):
         signature = map_data.get('signature')
 
         if status == 'COMPLETE':
-            message = f'{transaction_uuid},{total_amount},EPAYTEST'
+            message = f"total_amount={total},transaction_uuid={uuid_val},product_code=EPAYTEST"
             expected_signature = generate_signature(message, secret_key)
             order = Order.objects.get(id=transaction_uuid)
             if signature == expected_signature:
