@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsArrowRight } from 'react-icons/bs'; // Importing the arrow icon from react-icons library
 import Category from './Category'; // Importing the Category component
+import Footer from './footer';
 
 // Function to handle the "Shop Now" button click event
 function handleShopNow() {
@@ -11,6 +12,7 @@ function handleShopNow() {
 // Hero component
 const Hero = () => {
   return (
+    <>
     <div className="container mx-auto">
       <div className="flex flex-col items-center justify-top h-screen mt-20">
         {/* Main heading */}
@@ -36,6 +38,8 @@ const Hero = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
