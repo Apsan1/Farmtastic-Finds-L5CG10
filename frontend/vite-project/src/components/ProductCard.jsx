@@ -66,7 +66,7 @@ function ProductCard(props) {
           <AiFillStar />
           <AiOutlineStar />
         </div> */}
-        <h3 className="text-md font-semibold text-black-600">{price}</h3>
+        <h3 className="text-md font-semibold text-black-600">Rs {price}</h3>
         <h3 className="font-base text-md w-50 text-gray-500">{name}</h3>
         <div className="flex flex-row items-center justify-end">
           {/* Quantity Buttons */}

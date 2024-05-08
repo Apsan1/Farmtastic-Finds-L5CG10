@@ -47,7 +47,7 @@ const CartCard = () => {
                     {product.name}
                   </p>
                   <p className="mx-0 mt-1 mb-0 text-xl font-light text-gray-900">
-                    ${product.price}
+                    Rs. {product.price}
                   </p>
                   <p className="mx-0 mt-1 mb-0 text-base font-base text-gray-900">
                     Quantity: {product.totalQuantity}

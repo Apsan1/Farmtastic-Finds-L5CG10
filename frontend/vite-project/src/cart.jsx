@@ -52,7 +52,7 @@ const Cart = () => {
       <div className="flex items-center justify-center flex-row">
         <p className="text-3xl font-medium text-gray-900">Total: </p>
         <p className="ml-2 text-2xl font-semibold text-gray-900">
-          <span className="text-s font-bold text-gray-400">$</span>
+          <span className="text-s font-light text-gray-600">Rs. </span>
           {total}
         </p>
       </div>
