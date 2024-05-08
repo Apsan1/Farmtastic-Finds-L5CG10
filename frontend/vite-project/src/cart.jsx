@@ -11,7 +11,7 @@ function fetchTotal() {
   let total = 0;
   cart.forEach((product) => {
     //remove /kg from the price
-    const price = product.price.replace("/kg", "");
+    const price = product.price.replace("/kg", "")*product.totalQuantity;
     total += parseInt(price);
   });
   return total;
