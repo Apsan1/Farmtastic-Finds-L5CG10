@@ -13,6 +13,7 @@ import Cart from './cart.jsx';
 import ProductDetails from './ProductDetails.jsx';
 import { SaleProductsFilteredByCategory } from './components/SaleProducts.jsx';
 import Admin from './components/admin.jsx';
+import Checkout from './components/checkout.jsx';
 import { SaleProductsFilteredBySearch } from './components/SaleProducts.jsx';
 
 const RouterPaths = () => {
@@ -26,6 +27,7 @@ const RouterPaths = () => {
         <Route path="/product/:id" element={<ProductDetailsComponent />} />
         <Route path="/category/:category" element={<SaleProductsFilteredByCategoryComponent />} />
         <Route path="/search/:search" element={<SearchPageComponent />} />
+        <Route path="/checkout" element={<CheckoutComponent />} />
       </Routes>
     </Router>
   )
@@ -90,6 +92,14 @@ const AdminComponent=()=>{
   return(
     <React.StrictMode>
       <Admin></Admin>
+    </React.StrictMode>
+  )
+}
+
+const CheckoutComponent=()=>{
+  return(
+    <React.StrictMode>
+      <Checkout></Checkout>
     </React.StrictMode>
   )
 }
