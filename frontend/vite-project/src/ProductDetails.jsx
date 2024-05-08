@@ -27,12 +27,7 @@ const ProductDetails = () => {
 
 
   const addtoCart = () => {
-    const index = cartItems.findIndex((item) => item.id ===product.id);
-    if (index !== -1) {
-      const updatedCartItems = [...cartItems];
-      updatedCartItems.splice(index, 1);
-      setCartItems(updatedCartItems);
-    }
+   
     setCartItems((prev) => [...prev, { ...product, totalQuantity: quantity }]);
   };
 // Function to update quantity of the products
