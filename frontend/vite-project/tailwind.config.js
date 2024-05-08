@@ -6,6 +6,16 @@ export default {
   ],
   theme: {
     extend: {
+      //widths
+      width: {
+        '90%': '90%',
+        '102': '102px',
+      },
+      screens: {
+        'phone': '300px',
+        'md': '768px',
+        'xl': '1280px',
+      },
       boxShadow: {
         '3xl': '0 8px 15px -5px rgba(0, 0, 1, 0.4)',
       },
