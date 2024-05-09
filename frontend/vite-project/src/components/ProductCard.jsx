@@ -14,7 +14,7 @@ function ProductCard(props) {
 
   const [wishlistIsHovered, setWishlistIsHovered] = useState(false);
   const [addCartIsHovered, setAddCartIsHovered] = useState(false);
-  const { id, img, name, price } = props;
+  const { id, image, name, price } = props;
   // Accessing cart context
   const { cartItems, setCartItems } = useContext(CartContext);
   // State for quantity of product
@@ -52,7 +52,7 @@ function ProductCard(props) {
       <div className="flex justify-center items-center h-60">
         <div className="p-0 w-full h-full flex justify-center items-center bg-white">
         <img
-            src={img}
+            src={image}
             alt={name}
             className="object-cover w-[200px] h-[200px] max-w-full max-h-full rounded-md"
           />
