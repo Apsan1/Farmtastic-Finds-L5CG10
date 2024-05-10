@@ -15,7 +15,7 @@ import { SaleProductsFilteredByCategory } from './components/SaleProducts.jsx';
 import Admin from './components/admin.jsx';
 import Checkout from './components/checkout.jsx';
 import { SaleProductsFilteredBySearch } from './components/SaleProducts.jsx';
-import Error from './components/outputPage.jsx';
+import { Error, Success } from './components/outputPage.jsx';
 
 const RouterPaths = () => {
   return (
@@ -30,6 +30,9 @@ const RouterPaths = () => {
         <Route path="/search/:search" element={<SearchPageComponent />} />
         <Route path="/checkout" element={<CheckoutComponent />} />
         <Route path="/*" element={<OutputPage />} />
+        <Route path="/success" element={<OutputPage type="success" />} />
+        <Route path="/error" element={<OutputPage type="error" />} />
+
       </Routes>
     </Router>
   )
@@ -116,12 +119,14 @@ const SearchPageComponent = () => {
   );
 };
 
-const OutputPage = () => {
+const OutputPage = ({ type }) => {
   return (
     <React.StrictMode>
       <CartProviders>
         <Homepage_navbar />
-        <Error />
+        {type === 'success' && <Success />}
+        {type === 'error' && <Error />}
+        {type !== 'success' && type !== 'error' && <DefaultOutput />}
       </CartProviders>
     </React.StrictMode>
   );
