@@ -15,6 +15,7 @@ import { SaleProductsFilteredByCategory } from './components/SaleProducts.jsx';
 import Admin from './components/admin.jsx';
 import Checkout from './components/checkout.jsx';
 import { SaleProductsFilteredBySearch } from './components/SaleProducts.jsx';
+import Error from './components/outputPage.jsx';
 
 const RouterPaths = () => {
   return (
@@ -28,6 +29,7 @@ const RouterPaths = () => {
         <Route path="/category/:category" element={<SaleProductsFilteredByCategoryComponent />} />
         <Route path="/search/:search" element={<SearchPageComponent />} />
         <Route path="/checkout" element={<CheckoutComponent />} />
+        <Route path="/*" element={<OutputPage />} />
       </Routes>
     </Router>
   )
@@ -113,5 +115,16 @@ const SearchPageComponent = () => {
     </React.StrictMode>
   );
 };
+
+const OutputPage = () => {
+  return (
+    <React.StrictMode>
+      <CartProviders>
+        <Homepage_navbar />
+        <Error />
+      </CartProviders>
+    </React.StrictMode>
+  );
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(<RouterPaths />);
