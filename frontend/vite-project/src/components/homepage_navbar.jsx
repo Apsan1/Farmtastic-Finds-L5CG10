@@ -75,3 +75,4 @@ const searchProductsCard = (props) => {
 };
 
 export default HomepageNavbar;
+
