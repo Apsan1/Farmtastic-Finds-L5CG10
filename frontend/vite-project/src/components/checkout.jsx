@@ -7,7 +7,7 @@ const Checkout = () => {
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('cod');
-
+    const items=JSON.parse(localStorage.getItem("productData"))
     const handleSubmit = (e) => {
         e.preventDefault();
         // Logic to submit checkout information
@@ -19,9 +19,72 @@ const Checkout = () => {
             address,
             paymentMethod
         });
+        if(paymentMethod=="cod"){
+            manualOrder();
+        }
+        else{
+            onlineOrder();
+        }
         // Additional logic for submitting the checkout information
     };
 
+    async function manualOrder(){
+        const data = {
+            "customer":firstName+lastName,
+            "email":email,
+            "phone":phone,
+            "products":items,
+            "address":address
+
+        };
+        const response = await fetch('http://127.0.0.1:8000/order/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+    }
+
+    async function onlineOrder(){
+        const data = {
+            "name":firstName+lastName,
+            "email":email,
+            "phone":phone,
+            "items":items,
+            "address":address,
+            "total":"1000",
+
+        };
+        const response = await fetch('http://127.0.0.1:8000/payment/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch');
+                }
+
+                const responseData = await response.json();
+                if(responseData){
+                    const form = document.createElement('form');
+                    form.setAttribute('action', 'https://rc-epay.esewa.com.np/api/epay/main/v2/form');
+                    form.setAttribute('method', 'POST');
+                    Object.entries(responseData).forEach(([key, value]) => {
+                        const input = document.createElement('input');
+                        input.setAttribute('type', 'hidden');
+                        input.setAttribute('name', key);
+                        input.setAttribute('value', value);
+                        form.appendChild(input);
+                    });
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+                }
     return (
         <div className="flex min-h-screen items-center justify-center text-gray-900 bg-gray-200">
             <div className="relative">
