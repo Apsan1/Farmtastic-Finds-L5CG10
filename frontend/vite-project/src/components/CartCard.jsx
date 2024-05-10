@@ -36,7 +36,7 @@ const CartCard = () => {
             <div className="shrink-0">
               <img
                 className="h-40 w-40 max-w-full rounded-lg object-cover"
-                src={product.img}
+                src={product.image}
                 alt={product.name}
               />
             </div>
