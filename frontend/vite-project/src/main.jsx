@@ -40,7 +40,6 @@ const MainComponent = () => {
         <Homepage_navbar />
         <VideoBackground />
         <Hero />
-        <Footer />
       </CartProviders>
     </React.StrictMode>
   );
