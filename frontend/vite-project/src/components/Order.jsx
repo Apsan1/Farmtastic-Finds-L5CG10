@@ -7,6 +7,12 @@ const Order = () => {
   
   const [selectedRow, setSelectedRow] = useState(null);
 
+  
+  function handleOverviewClick() {
+    console.log("Dashboard overview");
+    window.location.href = "/dashboard"; // Redirects to the overview page
+  }
+
   const handleDelete = () => {
     if (selectedRow !== null) {
       // logic
@@ -33,7 +39,7 @@ const Order = () => {
         <div className="md:flex md:items-center md:justify-between flex-col md:flex-row">
           {/* Search input field */}
           <div className="flex items-center mb-4 sm:mb-0">
-          <IoMdArrowBack className="text-gray-500 mr-2" />
+          <IoMdArrowBack className="text-gray-500 mr-2"onClick={handleOverviewClick} />
             <div className="relative">
               <input
                 type="text"
