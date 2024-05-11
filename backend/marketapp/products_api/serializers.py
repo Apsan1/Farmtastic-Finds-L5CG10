@@ -33,3 +33,14 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = ('id','customer','email','phone','products','payment','status','address','amount')
                
+        def get_product_details(self, obj):
+            products = obj.products
+            details = []
+            for product in products:
+                detail = {
+                'name': product['name'],
+                'price': product['price'],
+                'quantity': product['totalQuantity']
+                }
+            details.append(detail)
+            return details
