@@ -5,6 +5,18 @@ import { useState } from "react";
 import { IoMdArrowBack } from "react-icons/io";
 import { fetchProducts } from "./fetchproducts";
 
+const inStock = () => {
+  return (
+    <div className="inline-flex items-center rounded-full bg-green-500 py-2 px-3 text-xs text-white">In stock</div>
+  );
+};
+
+const outOfStock = () => {
+  return (
+    <div className="inline-flex items-center rounded-full bg-red-500 py-2 px-3 text-xs text-white">Out of stock</div>
+  );
+};
+
 const ProductList = () => {
   
   const [selectedRow, setSelectedRow] = useState(null);
@@ -185,26 +197,10 @@ const ProductList = () => {
                 <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">{product.price}</td>
                 <td className="whitespace-no-wrap py-4 px-6 text-sm font-medium text-black hidden lg:table-cell">{product.quantity}</td>
                 <td className="whitespace-no-wrap hidden py-4 text-sm font-normal text-black sm:px-6 lg:table-cell">
-                  <div className="inline-flex items-center rounded-full bg-green-500 py-2 px-3 text-xs text-white">In stock</div>
+                  {product.stock ? inStock() : outOfStock()}
                 </td>
               </tr>
             ))}
-
-
-            {/* <tr className="text-center">
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">
-                <input type="checkbox" className="form-checkbox h-5 w-5 text-indigo-600" />
-              </td>
-              <td className="whitespace-no-wrap py-4 text-sm font-bold text-black sm:px-6">#131</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden md:table-cell">Vegetables</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden lg:table-cell">Potato</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">Rs.150</td>
-              <td className="whitespace-no-wrap py-4 px-6 text-sm font-medium text-black  hidden lg:table-cell">0</td>
-              <td className="whitespace-no-wrap hidden py-4 text-sm font-normal text-black sm:px-6 lg:table-cell">
-                <div className="inline-flex items-center rounded-full bg-red-500 py-2 px-3 text-xs text-white">Out of stock</div>
-              </td>
-            </tr> */}
-
           </tbody>
         </table>
       </div>
