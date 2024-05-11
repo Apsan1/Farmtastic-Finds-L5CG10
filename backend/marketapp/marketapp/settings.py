@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'products_api',
     'login',
     'payment',
-    'Category',
     'Orders',
 ]
 MATERIAL_ADMIN_SITE = {
@@ -56,7 +55,7 @@ MATERIAL_ADMIN_SITE = {
     'MAIN_BG_COLOR':  'green',  # Admin site main color, css color should be specified
     'MAIN_HOVER_COLOR':  'black',  # Admin site main hover color, css color should be specified
     # 'PROFILE_PICTURE':  'path/to/image',  # Admin site profile picture (path to static should be specified)
-    # 'PROFILE_BG':  'path/to/image',  # Admin site profile background (path to static should be specified)
+    'PROFILE_BG':  'base/bg.png',  # Admin site profile background (path to static should be specified)
     # 'LOGIN_LOGO':  'path/to/image',  # Admin site logo on login page (path to static should be specified)
     # 'LOGOUT_BG':  'path/to/image',  # Admin site background on login/logout pages (path to static should be specified)
     'SHOW_THEMES':  True,  #  Show default admin themes button

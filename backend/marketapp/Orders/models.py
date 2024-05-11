@@ -12,6 +12,9 @@ class Order(models.Model):
     address=models.CharField(max_length=250,default='None')
     amount=models.CharField(max_length=100,blank=False,default='100')
     
+    class Meta:
+        verbose_name="Order"
+        verbose_name_plural="Orders"
 
     def __str__(self):
         return self.name
