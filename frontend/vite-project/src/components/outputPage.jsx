@@ -61,4 +61,10 @@ export const Success = () => {
             return null;
 }
 
+export const CODSuccess = () => {
+            localStorage.clear();
+        return (
+            <DefaultOutput title={successProp.title} description={successProp.description} img={successProp.img} isSuccess={true} />
+        );
+}
 export default DefaultOutput;
