@@ -4,7 +4,7 @@ import { fetchById } from './components/fetchproducts';
 import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
 import { CartContext } from './context/cart';
 import Breadcrum from './components/breadcrumbs/breadcrumbs';
-import Carousels from './components/Carosules';
+import Carousels from './components/carosules';
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
