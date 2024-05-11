@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Documentation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .endpoint {
+        margin-bottom: 40px;
+        padding-left: 15px;
+      }
+      .endpoint h2 {
+        color: #007bff;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .endpoint p {
+        margin-bottom: 10px;
+      }
+      .divider {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 30px;
+      }
+      .note {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-left: 6px solid #007bff;
+        margin-bottom: 30px;
+      }
+      .method-get {
+        color: #28a745;
+      }
+      .method-post {
+        color: #007bff;
+      }
+      .method-put {
+        color: #ffc107;
+      }
+      .method-delete {
+        color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>API Documentation</h1>
+
+      <div class="endpoint">
+        <h2>Products</h2>
+        <p>These endpoints allow you to manage products.</p>
+      </div>
+      <div class="divider"></div>
+      <div class="endpoint">
+        <h2>GET /products/</h2>
+        <p class="method-get">Retrieve a list of all available products.</p>
+      </div>
+      <div class="endpoint">
+        <h2>POST /products/</h2>
+        <p class="method-post">Create a new product.</p>
+      </div>
+      <div class="endpoint">
+        <h2>GET /products/{id}/</h2>
+        <p class="method-get">
+          Retrieve detailed information about a specific product.
+        </p>
+      </div>
+      <div class="endpoint">
+        <h2>PUT /products/{id}/</h2>
+        <p class="method-put">Update information about a specific product.</p>
+      </div>
+      <div class="endpoint">
+        <h2>DELETE /products/{id}/</h2>
+        <p class="method-delete">Delete a specific product.</p>
+      </div>
+
+      <div class="endpoint">
+        <h2>Categories</h2>
+        <p>These endpoints allow you to manage categories.</p>
+      </div>
+      <div class="divider"></div>
+      <div class="endpoint">
+        <h2>GET /categories/</h2>
+        <p class="method-get">Retrieve a list of all available categories.</p>
+      </div>
+      <div class="endpoint">
+        <h2>POST /categories/</h2>
+        <p class="method-post">Create a new category.</p>
+      </div>
+      <div class="endpoint">
+        <h2>GET /categories/{id}/</h2>
+        <p class="method-get">
+          Retrieve detailed information about a specific category.
+        </p>
+      </div>
+      <div class="endpoint">
+        <h2>PUT /categories/{id}/</h2>
+        <p class="method-put">Update information about a specific category.</p>
+      </div>
+      <div class="endpoint">
+        <h2>DELETE /categories/{id}/</h2>
+        <p class="method-delete">Delete a specific category.</p>
+      </div>
+
+      <div class="endpoint">
+        <h2>Orders</h2>
+        <p>These endpoints allow you to manage orders.</p>
+      </div>
+      <div class="divider"></div>
+      <div class="endpoint">
+        <h2>GET /orders/</h2>
+        <p class="method-get">Retrieve a list of all orders.</p>
+      </div>
+      <div class="endpoint">
+        <h2>POST /orders/</h2>
+        <p class="method-post">Create a new order.</p>
+      </div>
+      <div class="endpoint">
+        <h2>GET /orders/{id}/</h2>
+        <p class="method-get">
+          Retrieve detailed information about a specific order.
+        </p>
+      </div>
+      <div class="endpoint">
+        <h2>PUT /orders/{id}/</h2>
+        <p class="method-put">Update information about a specific order.</p>
+      </div>
+      <div class="endpoint">
+        <h2>DELETE /orders/{id}/</h2>
+        <p class="method-delete">Delete a specific order.</p>
+      </div>
+
+      <div class="note">
+        <p>
+          <strong>Note:</strong> This API documentation is provided for
+          reference purposes only. Please ensure proper authorization and
+          authentication before accessing the endpoints.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
