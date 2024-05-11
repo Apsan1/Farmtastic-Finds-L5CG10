@@ -6,7 +6,7 @@ import base64
 import json
 import uuid
 from django.shortcuts import redirect
-from products_api.models import Order
+from order.models import Order
 
 #Esewa's Secret key for testing
 secret_key = "8gBm/:&EnhH.1/q"
