@@ -4,6 +4,13 @@ import { faEdit, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { CiLock } from "react-icons/ci";
 
 const ProfileSettings = () => {
+
+  
+  function handleOverviewClick() {
+    console.log("Dashboard overview clicked");
+    window.location.href = "/dashboard"; // Redirects to the overview page
+  }
+
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: "Neema",
@@ -52,9 +59,11 @@ const ProfileSettings = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="border border-gray-500 border-2 p-8 relative">
+        <div className="" onClick={handleOverviewClick}>
         <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
           <FontAwesomeIcon icon={faTimes} />
         </button>
+        </div>
         <div className="flex justify-center mb-4 md:mb-8">
           <label htmlFor="profileImage" className="cursor-pointer">
             {formData.profileImage ? (
