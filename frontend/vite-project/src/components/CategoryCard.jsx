@@ -2,8 +2,9 @@ const onCategoryClick = (category) => {
     window.location.href = `/category/${category}`;
 }
 
-const CategoryCard = ({ img, name, count }) => {
+const CategoryCard = ({ image, name, count }) => {
     return (
+    
       <div className="mt-4 border border-gray-300 shadow-3xl hover:border-gray-300 hover:scale-105 transition-transform rounded-lg " onClick={()=>onCategoryClick(name)}>
         <div className="flex flex-col justify-between">
         <div className="flex justify-between items-center px-4 py-6 ">
@@ -12,7 +13,7 @@ const CategoryCard = ({ img, name, count }) => {
         </div>
 
         <div className="flex w-100 h-50 justify-center items-center p-5">
-          <img className="object-cover w-[250px] h-[150px] max-w-full max-h-full rounded-lg" src={img} alt={name} />
+          <img className="object-cover w-[250px] h-[150px] max-w-full max-h-full rounded-lg" src={image} alt={name} />
         </div>
         </div>
       </div>

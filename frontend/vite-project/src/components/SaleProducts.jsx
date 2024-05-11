@@ -50,7 +50,7 @@ export const SaleProductsFilteredByCategory = () => {
       <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-3 pt-3 gap-6 relative">
         {products.map(product => 
         (
-          <ProductCard key={product.id} id={product.id} img={product.image} name={product.name} price={product.price+ "/kg"} />
+          <ProductCard key={product.id} id={product.id} image={product.image} name={product.name} price={product.price+ "/kg"} />
         ))}
       </div>
     </div>
@@ -104,7 +104,7 @@ export const SaleProductsFilteredBySearch = () => {
       <div className="px-20 grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-8 gap-y-20">
         {products.map(product =>
         (
-          <ProductCard key={product.id} id={product.id} img={product.image} name={product.name} price={product.price+ "/kg"} />
+          <ProductCard key={product.id} id={product.id} image={product.image} name={product.name} price={product.price+ "/kg"} />
         ))}
       </div>
     </div>

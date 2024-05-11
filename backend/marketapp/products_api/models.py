@@ -19,6 +19,8 @@ class Order(models.Model):
     products=models.JSONField(default=list)
     payment=models.CharField(max_length=250,default="COD")
     status=models.CharField(max_length=100,default="Unpaid")
+    address=models.CharField(max_length=250,default='None')
+    amount=models.CharField(max_length=100,blank=False,default='100')
     
 
     def __str__(self):

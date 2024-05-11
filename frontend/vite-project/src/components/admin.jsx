@@ -42,7 +42,7 @@ const Admin = () => {
                                 <span className="flex-shrink-0 text-3xl font-green  tracking-tight opacity-100">Farmtastic Finds</span>
                             </a>
                         </div>
-                        <h4 className="mb-2 font-medium text-green-700 xl:text-xl">Welcome to Admin Dashboard!</h4>
+                        <h4 className="mb-2 font-medium text-green-700 xl:text-xl">Welcome to Admin Login!</h4>
                         <form className="mb-4" onSubmit={handleLogin}>
                             <div className="mb-4">
                                 <label htmlFor="username" className="mb-2 inline-block text-xs font-medium uppercase text-green-700">Username</label>

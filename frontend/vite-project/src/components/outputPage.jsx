@@ -14,7 +14,7 @@ const errorProp = {
 
 const successProp = {
     title: "Success",
-    description: "Payment Successful",
+    description: "Order Completed",
     img: "https://i.gifer.com/7efs.gif"
 };
 
