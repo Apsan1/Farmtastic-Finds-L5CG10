@@ -24,7 +24,7 @@ const Category = () => {
         {categoryData.map((el, index) => (
           <CategoryCard 
             key={index}
-            img={el.cat_image} // Assuming you have 'img' property in your category data
+            image={el.cat_image} // Assuming you have 'img' property in your category data
             name={el.name} // Assuming 'category' property contains category name
             count={el.count}
           />
