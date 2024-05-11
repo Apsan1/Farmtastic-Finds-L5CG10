@@ -25,7 +25,6 @@ const Checkout = () => {
         else{
             onlineOrder();
         }
-        // Additional logic for submitting the checkout information
     };
 
     async function manualOrder(){
@@ -45,6 +44,7 @@ const Checkout = () => {
             body: JSON.stringify(data)
         });
 
+        window.location.href='/success';
     }
 
     async function onlineOrder(){
