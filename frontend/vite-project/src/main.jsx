@@ -16,6 +16,11 @@ import Admin from './components/admin.jsx';
 import Checkout from './components/checkout.jsx';
 import { SaleProductsFilteredBySearch } from './components/SaleProducts.jsx';
 import {DefaultOutput, Error, Success } from './components/outputPage.jsx';
+import Dashboard from './admin_dashboard.jsx';
+import Orders from './components/Order.jsx';
+import AddProduct from './components/AddProductForm.jsx';
+import ProductList from './components/Product_list.jsx';
+import ProfileSettings from './components/ProfileSettings.jsx';
 
 const RouterPaths = () => {
   return (
@@ -32,6 +37,11 @@ const RouterPaths = () => {
         <Route path="/*" element={<OutputPage />} />
         <Route path="/success" element={<OutputPage type="success" />} />
         <Route path="/error" element={<OutputPage type="error" />} />
+        <Route path="/dashboard" element={<DashboardComponent />} />
+        <Route path="/order" element={<OrderComponent />} />
+        <Route path="/add_product" element={<AddProductComponent />} />
+        <Route path="/product_list" element={<ProductListComponent />} />
+        <Route path="/profile" element={<ProfileComponent />} />
 
       </Routes>
     </Router>
@@ -132,4 +142,39 @@ const OutputPage = ({ type }) => {
   );
 }
 
+const DashboardComponent=()=>{
+  return(
+    <React.StrictMode>
+      <Dashboard />
+    </React.StrictMode>
+  )
+}
+const OrderComponent=()=>{
+  return(
+    <React.StrictMode>
+      <Orders />
+    </React.StrictMode>
+  )
+}
+const AddProductComponent=()=>{
+  return(
+    <React.StrictMode>
+      <AddProduct />
+    </React.StrictMode>
+  )
+}
+const ProductListComponent=()=>{
+  return(
+    <React.StrictMode>
+      <ProductList />
+    </React.StrictMode>
+  )
+}
+const ProfileComponent=()=>{
+  return(
+    <React.StrictMode>
+      <ProfileSettings/>
+    </React.StrictMode>
+  )
+}
 ReactDOM.createRoot(document.getElementById('root')).render(<RouterPaths />);
