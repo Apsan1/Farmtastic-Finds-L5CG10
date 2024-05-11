@@ -21,13 +21,16 @@ def paymentAPI(request):
     name = data.get('name')
     phone = data.get('phone')
     items = data.get('items')
+    place=data.get('address')
     
     order = Order.objects.create(
         customer=name,
         email=email,
         phone=phone,
         products=items,
-        payment='Esewa'
+        payment='Esewa',
+        address=place,
+        amount=total
     )
     uuid_val = order.id
     message = f"total_amount={total},transaction_uuid={uuid_val},product_code=EPAYTEST"
@@ -70,7 +73,7 @@ def paymentSuccess(request):
                
             order.status = 'Paid'
             order.save()
-            return redirect('http://localhost:5173/success')
+            return redirect('http://localhost:5173/')
             # else:
             #     order.delete()
                 # return redirect('http://localhost:5173/error?message=InvalidSignature')

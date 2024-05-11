@@ -16,6 +16,10 @@ function fetchTotal() {
   });
   return total;
 }
+const handleSubmit = () => {
+  
+  window.location.href = `/checkout`;
+};
 
 const Cart = () => {
   const total = fetchTotal();
@@ -62,6 +66,7 @@ const Cart = () => {
       <div className="mt-6 text-center flex phone:items-center phone:justify-center">
         <button
           type="button"
+          onClick={handleSubmit}
           className="group hover:scale-110 transition-transform flex xl:w-60 items-center justify-center rounded-md trending_btn px-10 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:trending__btn"
         >
           Checkout
