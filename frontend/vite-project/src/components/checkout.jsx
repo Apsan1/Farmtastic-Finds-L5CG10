@@ -44,7 +44,7 @@ import React, { useState } from 'react';
              body: JSON.stringify(data)
          });
 
-         window.location.href = '/success';
+         window.location.href = '/codsuccess';
      }
 
      async function onlineOrder() {
