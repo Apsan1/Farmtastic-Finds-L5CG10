@@ -2,6 +2,11 @@ import React from "react";
 import { BsSearch } from "react-icons/bs";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
+function getusername(){
+  const name = localStorage.getItem('username'); //get from local storage
+  return name;
+}
+
 // Function to handle click on the logo
 function handleLogoClick() {
   console.log("Logo clicked");
@@ -16,6 +21,7 @@ function handleProfileClick() {
 
 // Return JSX for the homepage navbar
 const AdminNavbar = () => {
+  const username = getusername();
   return (
     <div className="sticky top-0 bg-white z-10 ">
       <div className="container md:block mb-4">
@@ -51,7 +57,7 @@ const AdminNavbar = () => {
               <span className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></span>
             </div>
             <div className="flex flex-col items-center ml-2">
-              <span className="font-semi-bold text-s">Nima</span>
+              <span className="font-semi-bold text-s">{username}</span>
               <span className="text-xs text-gray-500">Admin</span>
             </div>
           </div>

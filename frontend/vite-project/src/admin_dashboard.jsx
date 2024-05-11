@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { AiOutlineDashboard, AiOutlineUser, AiOutlineShopping, AiOutlineShoppingCart, AiOutlineSetting, AiOutlineFileText, AiOutlineSolution } from 'react-icons/ai';
 import { IoIosArrowDropdown } from 'react-icons/io';
 import AdminNavbar from './components/Admin_navbar';
 import BarGraph from './components/BarGraph';
 import Categories from './components/Categories';
 import OrderManagementTable from './components/OrderTable';
+
 
 function Dashboard() {
   const [showProductsMenu, setShowProductsMenu] = useState(false);
@@ -16,6 +17,37 @@ function Dashboard() {
     "Add Product"
     // Add more as needed
   ];
+  const [ordersCount, setOrdersCount] = useState(0);
+  const [productsCount, setProductsCount] = useState(0);
+  const [unpaidOrdersCount, setUnpaidOrdersCount] = useState(0);
+
+  useEffect(() => {
+    async function fetchOrdersCount() {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/order/');
+        const data = await response.json();
+        const unpaidOrders = data.filter(order => order.status === 'Unpaid');
+        setUnpaidOrdersCount(unpaidOrders.length);
+        setOrdersCount(data.length);
+      } catch (error) {
+        console.error('Error fetching orders:', error);
+      }
+    }
+
+    fetchOrdersCount();
+    fetchProductsCount();
+
+    async function fetchProductsCount() {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/products/');
+        const data = await response.json();
+        setProductsCount(data.length);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    }
+
+  }, []);
 
   const handleProductClick = () => {
     setShowProductsMenu(!showProductsMenu);
@@ -65,19 +97,19 @@ function Dashboard() {
     <div className=" dashboard-widget bg-[#d5f2b8] p-4 rounded-md shadow-md">
     <h2 className="widget-title">Total Order</h2>
             <img src="/images/orders.png" alt="Monthly Income" className="widget-image h-12 w-12" />
-            <p className="widget-text">Rs.50</p>
+            <p className="widget-text">{ordersCount}</p>
     </div>
     {/* Active Users */}
     <div className="dashboard-widget bg-[#d5f2b8] p-4 rounded-md shadow-md">
     <h2 className="widget-title">Total Products</h2>
             <img src="/images/products.png" alt="Active Users" className="widget-image h-12 w-12" />
-            <p className="widget-text">500</p>
+            <p className="widget-text">{productsCount}</p>
     </div>
     {/* Order Process */}
     <div className="dashboard-widget bg-[#d5f2b8] p-4 rounded-md shadow-md">
     <h2 className="widget-title">Unpaid Order</h2>
             <img src="/images/unpaid.png" alt="Order Process" className="widget-image h-12 w-12" />
-            <p className="widget-text">8</p>
+            <p className="widget-text">{unpaidOrdersCount}</p>
     </div>
   </div>
   <div className="grid grid-cols-2 gap-4 mt-4">
