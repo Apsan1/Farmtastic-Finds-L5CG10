@@ -5,7 +5,6 @@ const OrderManagementTable = () => {
   const [orders, setOrders] = useState([]);
   useState(() => {
     fetchorders().then((data) => {
-      console.log(data);
       setOrders(data);
     });
   }, []);

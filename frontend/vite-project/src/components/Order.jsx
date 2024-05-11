@@ -3,11 +3,32 @@ import { AiOutlineSearch} from "react-icons/ai";
 import { MdDeleteOutline, MdOutlineUpdate } from "react-icons/md";
 import { useState } from "react";
 import { IoMdArrowBack } from "react-icons/io";
+import { fetchorders } from "./fetchorders";
+
+const paidStatus = () => {
+  return (
+    <div className="inline-flex items-center rounded-full bg-green-600 py-2 px-6 text-xs text-white">Paid</div>
+  );
+};
+
+const pendingStatus = () => {
+  return (
+    <div className="inline-flex items-center rounded-full bg-red-500 py-2 px-3 text-xs text-white">Pending</div>
+  );
+};
+
 const Order = () => {
   
   const [selectedRow, setSelectedRow] = useState(null);
+  const [orders, setOrders] = useState([]);
 
-  
+  useState(() => {
+    fetchorders().then((data) => {
+      setOrders(data);
+    });
+  }, []);
+
+
   function handleOverviewClick() {
     console.log("Dashboard overview");
     window.location.href = "/dashboard"; // Redirects to the overview page
@@ -165,47 +186,29 @@ const Order = () => {
 
           <tbody className="lg:border-gray-300 justify-center">
             {/* Table body rows */}
-            <tr className="text-center">
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">
-                <input type="checkbox" className="form-checkbox h-5 w-5 text-indigo-600" />
-              </td>
-              <td className=" mx-auto whitespace-no-wrap py-4 text-sm font-bold text-black sm:px-6">#130</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden md:table-cell">Biplavi</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden lg:table-cell">COD</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">01 May, 2024</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">Rs.590</td>
-              <td className="whitespace-no-wrap hidden py-4 text-sm font-normal text-black sm:px-6 lg:table-cell">
-                <div className="inline-flex items-center rounded-full bg-green-600 py-2 px-6 text-xs text-white">Paid</div>
-              </td>
-            </tr>
-
-            <tr className="text-center">
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">
-                <input type="checkbox" className="form-checkbox h-5 w-5 text-indigo-600" />
-              </td>
-              <td className="whitespace-no-wrap py-4 text-sm font-bold text-black sm:px-6">#130</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden md:table-cell">Kritika</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden lg:table-cell">e-Sewa</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">01 May, 2024</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">Rs.590</td>
-              <td className="whitespace-no-wrap hidden py-4 text-sm font-normal text-black sm:px-6 lg:table-cell">
-                <div className="inline-flex items-center rounded-full bg-red-500 py-2 px-3 text-xs text-white">Pending</div>
-              </td>
-            </tr>
-
-            <tr className="text-center">
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">
-                <input type="checkbox" className="form-checkbox h-5 w-5 text-indigo-600" />
-              </td>
-              <td className="whitespace-no-wrap py-4 text-sm font-bold text-black sm:px-6">#130</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden md:table-cell">Rojina</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden lg:table-cell">e-Sewa</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">01 May, 2024</td>
-              <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">Rs.590</td>
-              <td className="whitespace-no-wrap hidden py-4 text-sm font-normal text-black sm:px-6 lg:table-cell">
-                <div className="inline-flex items-center rounded-full bg-blue-500 py-2 px-5 text-xs text-white">Partial</div>
-              </td>
-            </tr>
+            {orders.map((order, index) => (
+              <tr
+                key={index}
+                className="text-center border-b border-gray-200"
+              >
+                <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">
+                  <input
+                    type="checkbox"
+                    className="form-checkbox h-5 w-5 text-indigo-600"
+                    onChange={() => setSelectedRow(order.id)}
+                  />
+                </td>
+                <td className="whitespace-no-wrap py-4 text-sm font-bold text-black sm:px-6">{order.id}</td>
+                <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden md:table-cell">{order.customer}</td>
+                <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden lg:table-cell">{order.payment}</td>
+                <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6">{order.email}</td>
+                <td className="whitespace-no-wrap py-4 text-sm font-medium text-black sm:px-6 hidden lg:table-cell text-center">{order.amount}</td>
+                <td className="whitespace-no-wrap hidden py-4 text-sm font-normal text-black sm:px-6 lg:table-cell">
+                  {order.status === "Paid" ? paidStatus() : pendingStatus() }
+                </td>
+              </tr>
+            )
+            )}
           </tbody>
         </table>
       </div>
