@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'products_api',
     'login',
     'payment',
+    'Category',
+    'Orders',
 ]
 MATERIAL_ADMIN_SITE = {
     'HEADER':  _('Farmtastic Finds- Admin'),  # Admin site header
