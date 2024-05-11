@@ -4,7 +4,7 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework import filters
 from products.models import Products,Category
-from . models import Order
+from order.models import Order
 from .serializers import ProductsSerializer,CategorySerializerAll,OrderSerializer
 
 class CategoryList(generics.ListCreateAPIView):
