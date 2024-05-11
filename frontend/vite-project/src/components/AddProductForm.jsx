@@ -8,6 +8,12 @@ function AddProduct() {
   const [image, setImage] = useState(null);
   const [imageName, setImageName] = useState("No photo chosen");
 
+  
+  function handleOverviewClick() {
+    console.log("Dashboard overview clicked");
+    window.location.href = "/dashboard"; // Redirects to the overview page
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -43,9 +49,11 @@ function AddProduct() {
     <div className="max-w-lg mx-auto border border-gray-300 rounded-md p-4 mt-10">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Add Product</h2>
+        <div className=""onClick={handleOverviewClick}>
         <button className="p-2">
           <ImCross />
         </button>
+        </div>
       </div>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
