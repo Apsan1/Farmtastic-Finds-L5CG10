@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,7 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
+    'material',
+    'material.admin',
+    # "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -43,7 +46,21 @@ INSTALLED_APPS = [
     'products_api',
     'login',
     'payment',
+    'order',
 ]
+MATERIAL_ADMIN_SITE = {
+    'HEADER':  _('Farmtastic Finds'),  # Admin site header
+    'TITLE':  _('Admin Panel'),  # Admin site title
+    'MAIN_BG_COLOR':  'green',  # Admin site main color, css color should be specified
+    'MAIN_HOVER_COLOR':  'black',  # Admin site main hover color, css color should be specified
+    # 'PROFILE_PICTURE':  'path/to/image',  # Admin site profile picture (path to static should be specified)
+    # 'PROFILE_BG':  'path/to/image',  # Admin site profile background (path to static should be specified)
+    'SHOW_THEMES':  True,  #  Show default admin themes button
+
+    'NAVBAR_REVERSE': True,  # Hide side navbar by default
+    'SHOW_COUNTS': True, # Show instances counts for each model
+ 
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
