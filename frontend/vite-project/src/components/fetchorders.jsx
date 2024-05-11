@@ -28,5 +28,3 @@ export async function fetchOrderById(id) {
         return null;
     }
 }
-
-

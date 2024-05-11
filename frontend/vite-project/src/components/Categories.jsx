@@ -1,13 +1,15 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { fetchCategories } from "./fetchproducts";
 
 const Categories = () => {
-  const cities = [
-    { name: "Fruits", sales: 25 },
-    { name: "Vegetables", sales: 22 },
-    { name: "Fish and Meats", sales: 12 },
-    { name: "Eggs", sales: 6 },
-    { name: "Breads and Breakfast", sales: 14 },
-  ];
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetchCategories().then((data) => {
+      setCategories(data);
+    });
+  
+  }, []);
 
   return (
     <div className="max-w-md mx-auto">
@@ -16,16 +18,16 @@ const Categories = () => {
         Categories available along with the counts
       </h3>
       <ul className="space-y-6">
-        {cities.map((city, index) => (
+        {categories.map((category, index) => (
           <li
             key={index}
             className="bg-gray-100 p-3 rounded-md flex justify-between flex-wrap sm:flex-nowrap"
           >
             <span className="font-medium w-full sm:w-auto mb-2 sm:mb-0 sm:mr-4">
-              {city.name}
+              {category.name}
             </span>
             <span className="w-full sm:w-auto text-right">
-              Rs.{city.sales.toLocaleString()}
+              {category.count} Products
             </span>
           </li>
         ))}
