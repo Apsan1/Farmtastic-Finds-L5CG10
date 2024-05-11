@@ -56,9 +56,9 @@ export const Error = () => {
 }
 
 export const Success = () => {
-    return (
-        <DefaultOutput title={successProp.title} description={successProp.description} img={successProp.img} isSuccess={true} />
-    );
+            localStorage.clear();
+            window.location.href = '/shop';
+            return null;
 }
 
 export default DefaultOutput;

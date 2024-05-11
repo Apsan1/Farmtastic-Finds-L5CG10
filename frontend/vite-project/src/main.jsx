@@ -15,7 +15,7 @@ import { SaleProductsFilteredByCategory } from './components/SaleProducts.jsx';
 import Admin from './components/admin.jsx';
 import Checkout from './components/checkout.jsx';
 import { SaleProductsFilteredBySearch } from './components/SaleProducts.jsx';
-import { Error, Success } from './components/outputPage.jsx';
+import {DefaultOutput, Error, Success } from './components/outputPage.jsx';
 
 const RouterPaths = () => {
   return (
