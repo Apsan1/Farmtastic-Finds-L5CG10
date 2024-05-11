@@ -4,7 +4,7 @@ import { fetchById } from './components/fetchproducts';
 import { AiFillStar, AiOutlineStar, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
 import { CartContext } from './context/cart';
 import Breadcrum from './components/breadcrumbs/breadcrumbs';
-
+import Carousels from './components/Carosules';
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -103,7 +103,7 @@ const handleQuantity = (value) => {
         <div className="carousel">
         <h1>Related Products</h1>
         {/* Add Carousel here */}
-        Carousel here
+        <Carousels />
       </div>
       </div>
 

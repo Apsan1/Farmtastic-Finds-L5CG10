@@ -73,7 +73,7 @@ def paymentSuccess(request):
                
             order.status = 'Paid'
             order.save()
-            return redirect('http://localhost:5173/')
+            return redirect('http://localhost:5173/success')
             # else:
             #     order.delete()
                 # return redirect('http://localhost:5173/error?message=InvalidSignature')
