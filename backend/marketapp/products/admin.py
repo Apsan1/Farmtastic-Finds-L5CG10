@@ -18,4 +18,4 @@ class ProductAdmin(ModelAdmin):
 @register(Category)
 class CategoryAdmin(ModelAdmin):
     list_display = ('name','cat_image')
-    icon_name='donut_small'
+    icon_name='add_shopping_cart'
