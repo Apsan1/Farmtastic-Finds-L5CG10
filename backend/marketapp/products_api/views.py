@@ -1,6 +1,7 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from rest_framework import filters
 from products.models import Products,Category
@@ -55,3 +56,6 @@ class OrdersList(generics.ListCreateAPIView):
 class OrdersDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset=Order.objects.all()
     serializer_class= OrderSerializer     
+    
+def apiDoc(request):
+     return render(request,'index.html')   
