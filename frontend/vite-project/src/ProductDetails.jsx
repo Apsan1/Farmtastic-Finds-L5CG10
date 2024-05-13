@@ -4,7 +4,8 @@ import { fetchById } from './components/fetchproducts';
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { CartContext } from './context/cart';
 import Breadcrum from './components/breadcrumbs/breadcrumbs';
-import carousels from './components/carosules';
+import Carousels from './components/carosules';
+
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -42,6 +43,8 @@ const ProductDetails = () => {
   if (!product) {
     return <div>Loading...</div>; // Displaying loading message if product data is not yet available
   }
+
+  const sendProps = [];
 
   return (
     // breadcrumb
@@ -82,7 +85,7 @@ const ProductDetails = () => {
       <div className="carousel">
         <h1 className="text-center">Related Products</h1>
          {/* Add Carousel here */}
-        <Carousels />
+        <Carousels category={product.category} productId={product.id} />
       </div>
     </>
   );
