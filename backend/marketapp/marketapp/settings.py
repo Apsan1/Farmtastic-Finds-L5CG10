@@ -56,7 +56,6 @@ MATERIAL_ADMIN_SITE = {
     # 'PROFILE_PICTURE':  'path/to/image',  # Admin site profile picture (path to static should be specified)
     # 'PROFILE_BG':  'path/to/image',  # Admin site profile background (path to static should be specified)
     'SHOW_THEMES':  True,  #  Show default admin themes button
-
     'NAVBAR_REVERSE': True,  # Hide side navbar by default
     'SHOW_COUNTS': True, # Show instances counts for each model
  
@@ -152,6 +151,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+
 
 CORS_ALLOW_ALL_ORIGINS = True
 
