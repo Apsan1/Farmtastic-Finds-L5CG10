@@ -38,7 +38,7 @@ def paymentAPI(request):
     #data to be sent to the frontend for esewa integration
     form = {
         "amount": total,
-        "failure_url": "https://google.com",
+        "failure_url": "http://localhost:5173/error",
         "product_delivery_charge": "0",
         "product_service_charge": "0",
         "product_code": "EPAYTEST",
