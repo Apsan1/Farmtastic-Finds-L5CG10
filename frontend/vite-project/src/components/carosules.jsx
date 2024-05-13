@@ -70,7 +70,7 @@ function Carousels(props) {
               key={d.id}
               className="bg-white h-full text-black rounded-xl overflow-hidden shadow-md"
             >
-              <div className="rounded-t-xl bg-green-700 flex justify-center items-center">
+              <div className="rounded-t-xl bg-white-700 flex justify-center items-center">
                 <img
                   src={d.image}
                   alt={d.name}
@@ -81,7 +81,7 @@ function Carousels(props) {
                 <p className="text-xl font-semibold">{d.name}</p>
                 <p>Rs. {d.price}</p>
                 <button
-                  className="bg-orange-400 text-white text-lg px-5 py-1 rounded-xl"
+                  className="bg-[#2D9D2D] text-white text-lg px-5 py-1 rounded-xl"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleClickProducts(d.id);
@@ -103,7 +103,7 @@ function Carousels(props) {
 const CustomPrevArrow = (props) => (
   <button
     onClick={props.onClick}
-    className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-orange-400 text-white rounded-full p-2 z-10"
+    className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-orange-500 text-white rounded-full p-2 z-10"
   >
     <FaArrowLeft />
   </button>
@@ -112,7 +112,7 @@ const CustomPrevArrow = (props) => (
 const CustomNextArrow = (props) => (
   <button
     onClick={props.onClick}
-    className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-orange-400 text-white rounded-full p-2"
+    className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-orange-500 text-white rounded-full p-2"
   >
     <FaArrowRight />
   </button>
