@@ -38,7 +38,10 @@ const Hero = () => {
         </div>
       </div>
     </div>
-    <Footer />
+    <div className='phone:hidden md:block'>
+  <Footer />
+</div>
+
     </>
   );
 };
