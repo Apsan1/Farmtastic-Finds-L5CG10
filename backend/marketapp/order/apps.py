@@ -1,7 +1,8 @@
 from django.apps import AppConfig
 
 
-class ProductsConfig(AppConfig):
+class OrderConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "products"
+    name = "order"
     icon_name='donut_small'
+
