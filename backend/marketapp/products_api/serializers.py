@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from products.models import Products, Category
-from order.models import Order
+from . models import Order
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:

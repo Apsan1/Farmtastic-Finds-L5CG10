@@ -8,11 +8,10 @@ import {
 
 import { CartContext } from "../context/cart";
 
-const CartCard = ({money}) => {
+const CartCard = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
 
   const removeFromCart = (product) => {
-    money(product.price.replace("/kg", "")*product.totalQuantity);
     const updatedCart = cartItems.filter((item) => item.id !== product.id);
     setCartItems(updatedCart);
     localStorage.setItem("productData", JSON.stringify(updatedCart));

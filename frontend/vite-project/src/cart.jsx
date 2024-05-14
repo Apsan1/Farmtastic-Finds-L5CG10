@@ -1,6 +1,5 @@
-import {useEffect,useState} from "react";
+import {useEffect} from "react";
 import CartCard from "./components/CartCard.jsx";
-
 
 function handleShopClick() {
   console.log("Shop clicked");
@@ -17,22 +16,14 @@ function fetchTotal() {
   });
   return total;
 }
-
+const handleSubmit = () => {
+  
+  window.location.href = `/checkout`;
+};
 
 const Cart = () => {
-  const [total,setTotal]=useState(0);
-  const newAmount=(newAmount)=>{
-  const newTotal = total - newAmount < 0 ? 0 : total - newAmount;
-    setTotal(newTotal);
-  }
-  const handleSubmit = () => {
-  
-    window.location.href = `/checkout/${total}`;
-  };
-  
+  const total = fetchTotal();
   useEffect(() => {
-  // let amount=fetchTotal();
-  setTotal(fetchTotal());
     // Apply overflow: hidden to the body element only on desktops
     const mediaQuery = window.matchMedia('(min-width: 768px)'); // Adjust the minimum width as needed for desktops
     if (mediaQuery.matches) {
@@ -60,7 +51,7 @@ const Cart = () => {
     <div className="bg-white md:h-[75vh] phone:h-[50vh] shadow-2xl rounded-lg ml-0 overflow-y-auto">
           <ul className="-my-2">
             <li className="flex flex-col py-6 text-left sm:flex-row sm:space-x-5 sm:space-y-0">
-              <CartCard money={newAmount} />
+              <CartCard />
             </li>
           </ul>
     </div>

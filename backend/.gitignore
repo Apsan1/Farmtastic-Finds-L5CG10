@@ -1,5 +1,6 @@
 /*venv*/
 __pycache__/
+migrations/
 media/
 node_modules/
 
@@ -11,7 +12,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-*.pyc
 
 /*node_modules*/
 dist

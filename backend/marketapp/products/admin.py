@@ -1,21 +1,8 @@
-# from django.contrib import admin
-# from .models import Category, Products
+from django.contrib import admin
+from .models import Category, Products
+from products_api.models import Order
 
 
-# admin.site.register(Products)
-# admin.site.register(Category)
-
-from django.contrib.admin import ModelAdmin, register
-
-
-from products.models import Products,Category
-
-@register(Products)
-class ProductAdmin(ModelAdmin):
-    list_display = ('name','description','category','stock','price','image')
-    icon_name='donut_small'
-
-@register(Category)
-class CategoryAdmin(ModelAdmin):
-    list_display = ('name','cat_image')
-    icon_name='add_shopping_cart'
+admin.site.register(Products)
+admin.site.register(Category)
+admin.site.register(Order)

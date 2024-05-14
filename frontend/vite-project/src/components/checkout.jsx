@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useParams} from 'react-router-dom';
+
  const Checkout = () => {
      const [firstName, setFirstName] = useState('');
      const [lastName, setLastName] = useState('');
@@ -9,8 +9,7 @@ import {useParams} from 'react-router-dom';
      const [paymentMethod, setPaymentMethod] = useState('cod');
      const items = JSON.parse(localStorage.getItem("productData"));
      const [confirmed, setConfirmed] = useState(false); // New state for confirmation status
-     const {total}=useParams();
-     console.log(typeof(total))
+
      const handleSubmit = async (e) => {
          e.preventDefault();
         // Logic to submit checkout information
@@ -55,7 +54,7 @@ import {useParams} from 'react-router-dom';
              "phone": phone,
              "items": items,
              "address": address,
-             "total": total,
+             "total": "1000",
          };
          const response = await fetch('http://127.0.0.1:8000/payment/', {
              method: 'POST',

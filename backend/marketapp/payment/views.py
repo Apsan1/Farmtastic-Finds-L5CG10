@@ -6,7 +6,7 @@ import base64
 import json
 import uuid
 from django.shortcuts import redirect
-from order.models import Order
+from products_api.models import Order
 
 #Esewa's Secret key for testing
 secret_key = "8gBm/:&EnhH.1/q"
@@ -38,7 +38,7 @@ def paymentAPI(request):
     #data to be sent to the frontend for esewa integration
     form = {
         "amount": total,
-        "failure_url": "http://localhost:5173/error",
+        "failure_url": "https://google.com",
         "product_delivery_charge": "0",
         "product_service_charge": "0",
         "product_code": "EPAYTEST",

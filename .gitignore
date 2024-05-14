@@ -1,5 +1,6 @@
 /*venv*/
 __pycache__/
+migrations/
 media/
 node_modules/
 

@@ -4,8 +4,7 @@ import { fetchById } from './components/fetchproducts';
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { CartContext } from './context/cart';
 import Breadcrum from './components/breadcrumbs/breadcrumbs';
-import Carousels from './components/carosules';
-
+import carousels from './components/carosules';
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -44,15 +43,13 @@ const ProductDetails = () => {
     return <div>Loading...</div>; // Displaying loading message if product data is not yet available
   }
 
-  const sendProps = [];
-
   return (
     // breadcrumb
     <>
       <Breadcrum product={product} /> {/*Passing product name here*/}
-      <div className="product-detail  h-[100vh] grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 sm:px-20 py-8 md:py-12 lg:py-16" style={{ backgroundImage: "linear-gradient(to right top, #ececec, #f1f1f1, #f5f5f5, #fafafa, #ffffff)" }}>
+      <div className="product-detail grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 sm:px-20 py-8 md:py-12 lg:py-16" style={{ backgroundImage: "linear-gradient(to right top, #ececec, #f1f1f1, #f5f5f5, #fafafa, #ffffff)" }}>
         <div className="justify-center">
-          <img src={product.image} alt={product.name} className="object-cover w-[700px] h-[500px] sm:max-w-lg mx-auto" />
+          <img src={product.image} alt={product.name} className="object-cover w-full sm:max-w-lg mx-auto" />
         </div>
         <div className="flex flex-col justify-center gap-4">
           <p className="text-3xl font-semibold">{product.name}</p>
@@ -78,16 +75,14 @@ const ProductDetails = () => {
           </div>
           <div className="flex items-center mt-1 flex-row gap-4">
             <button className="bg-accent text-white text-base sm:text-lg w-full sm:w-[200px] h-[50px] rounded-md grid items-center justify-center p-3 cursor-pointer" onClick={() => addtoCart()}>Add To Cart</button>
-            {/* <button className="bg-white text-accent border-2 border-black text-base sm:text-lg w-full sm:w-[200px] h-[50px] rounded-md grid items-center justify-center p-3 cursor-pointer">Add To Wishlist</button> */}
+            <button className="bg-white text-accent border-2 border-black text-base sm:text-lg w-full sm:w-[200px] h-[50px] rounded-md grid items-center justify-center p-3 cursor-pointer">Add To Wishlist</button>
           </div>
         </div>
       </div>
-      <div className="carousel h-[93vh] py-10">
-        <h1 className="text-center text-3xl">Related Products</h1>
+      <div className="carousel">
+        <h1 className="text-center">Related Products</h1>
          {/* Add Carousel here */}
-         <div className="mt-10 sm:px-20 items-center justify-center">
-        <Carousels category={product.category} productId={product.id} />
-        </div>
+        <Carousels />
       </div>
     </>
   );

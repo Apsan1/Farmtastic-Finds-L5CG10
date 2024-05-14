@@ -33,7 +33,7 @@ const RouterPaths = () => {
         <Route path="/product/:id" element={<ProductDetailsComponent />} />
         <Route path="/category/:category" element={<SaleProductsFilteredByCategoryComponent />} />
         <Route path="/search/:search" element={<SearchPageComponent />} />
-        <Route path="/checkout/:total" element={<CheckoutComponent />} />
+        <Route path="/checkout" element={<CheckoutComponent />} />
         <Route path="/*" element={<OutputPage />} />
         <Route path="/success" element={<OutputPage type="success" />} />
         <Route path="/error" element={<OutputPage type="error" />} />
