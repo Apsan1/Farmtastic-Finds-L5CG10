@@ -17,7 +17,7 @@ const SaleProducts = () => {
     <div className="container mb-40">
       <div className="lg:flex justify-between items-center">
       </div>
-      <div className="px-20 grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-8 gap-y-20">
+      <div className="md:px-20 grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-8 gap-y-20">
         {products.map(product => 
         (
           <ProductCard key={product.id} id={product.id} image={product.imageSrc} name={product.name} price={product.price+ "/kg"} />

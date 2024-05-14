@@ -46,7 +46,7 @@ function ProductCard(props) {
   // Return JSX for product card
   return (
     <div
-      className="shadow-lg rounded-md hover:scale-105 transition-transform h-80 relative"
+      className="shadow-lg phone:w-[300px] md:w-[auto] rounded-md hover:scale-105 transition-transform h-80 relative"
       onClick={() => handleClickProducts(id)}
     >
       <div className="flex justify-center items-center h-60">
