@@ -24,7 +24,7 @@ const Admin = () => {
             const data = await response.json();
             console.log(data.message);
             if(data.message==="Logged in successfully"){
-                window.location.href='/dashboard';
+                window.location.href='http://127.0.0.1:8000/admin/';
             }
         } catch (error) {
             console.error('Error:', error.message);

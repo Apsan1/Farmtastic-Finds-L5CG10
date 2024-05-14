@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from login.views import custom_logout
 urlpatterns = [
+    path('admin/logout/', custom_logout, name='admin_logout'),
     path("admin/", admin.site.urls),
     path("",include("products_api.urls")),
     path('payment/',include("payment.urls")),
@@ -27,3 +28,5 @@ urlpatterns = [
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+admin.site.index_title= "Farmtastic Finds"

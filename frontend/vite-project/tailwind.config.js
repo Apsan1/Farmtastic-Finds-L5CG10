@@ -31,7 +31,7 @@ export default {
       },
 
       colors:{
-        accent:"#000000",
+        accent:"#2D9D2D",
         accentDark:"",
         naturalGreen: "#1c3305",
         neutralBlack: "#1E1502",
