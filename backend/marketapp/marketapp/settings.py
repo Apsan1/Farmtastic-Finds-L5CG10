@@ -99,10 +99,10 @@ WSGI_APPLICATION = "marketapp.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ajznskanil_marketapp',
-        'USER': 'ajznskanil_apsan1',
-        'PASSWORD': '9841679578Apsan',
-        'HOST': '220.158.232.16',  # Connect via TCP/IP
+        'NAME': 'MarketApp',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',  # Connect via TCP/IP
         'PORT': '3306',
     }
     
