@@ -24,8 +24,10 @@ const Admin = () => {
             const data = await response.json();
             console.log(data.message);
             if(data.message==="Logged in successfully"){
+
                 localStorage.setItem('username',username);
                 window.location.href='/dashboard';
+                
             }
         } catch (error) {
             console.error('Error:', error.message);

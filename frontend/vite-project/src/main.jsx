@@ -15,7 +15,7 @@ import { SaleProductsFilteredByCategory } from './components/SaleProducts.jsx';
 import Admin from './components/admin.jsx';
 import Checkout from './components/checkout.jsx';
 import { SaleProductsFilteredBySearch } from './components/SaleProducts.jsx';
-import {DefaultOutput, Error, Success } from './components/outputPage.jsx';
+import {DefaultOutput, Error, Success, CODSuccess } from './components/outputPage.jsx';
 import Dashboard from './admin_dashboard.jsx';
 import Orders from './components/Order.jsx';
 import AddProduct from './components/AddProductForm.jsx';
@@ -33,10 +33,11 @@ const RouterPaths = () => {
         <Route path="/product/:id" element={<ProductDetailsComponent />} />
         <Route path="/category/:category" element={<SaleProductsFilteredByCategoryComponent />} />
         <Route path="/search/:search" element={<SearchPageComponent />} />
-        <Route path="/checkout" element={<CheckoutComponent />} />
+        <Route path="/checkout/:total" element={<CheckoutComponent />} />
         <Route path="/*" element={<OutputPage />} />
         <Route path="/success" element={<OutputPage type="success" />} />
         <Route path="/error" element={<OutputPage type="error" />} />
+        <Route path = "/codsuccess" element = {<CODSuccess />} />
         <Route path="/dashboard" element={<DashboardComponent />} />
         <Route path="/order" element={<OrderComponent />} />
         <Route path="/add_product" element={<AddProductComponent />} />

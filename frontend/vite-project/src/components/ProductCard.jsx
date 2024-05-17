@@ -46,7 +46,7 @@ function ProductCard(props) {
   // Return JSX for product card
   return (
     <div
-      className="shadow-lg rounded-md hover:scale-105 transition-transform h-80 relative"
+      className="md:mb-0 phone:mb-10 shadow-lg phone:w-[300px] md:w-[auto] rounded-md hover:scale-105 transition-transform h-80 relative"
       onClick={() => handleClickProducts(id)}
     >
       <div className="flex justify-center items-center h-60">
@@ -104,7 +104,7 @@ function ProductCard(props) {
           >
             {addCartIsHovered? <AiFillShopping /> : <AiOutlineShopping />}
           </button>
-          <button
+          {/* <button
             className="transition-transform hover:scale-110 absolute shadow-3xl -top-0 right-12 bg-white text-black text-[22px] w-[40px] h-[40px] rounded-full grid place-items-center cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
@@ -114,7 +114,7 @@ function ProductCard(props) {
             onMouseLeave={() => setWishlistIsHovered(false)}
           >
            {wishlistIsHovered ? <AiFillHeart className="text-red-600" />: <AiOutlineHeart className="text-black" />}
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
