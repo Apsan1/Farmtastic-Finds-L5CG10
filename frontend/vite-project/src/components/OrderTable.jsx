@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { fetchorders } from './fetchorders';
 
 const OrderManagementTable = () => {
-  const [orders, setOrders] = useState([
-    { id: 1, date: '04/26/2024', product:'Apple', customer: 'Sita Regmi', total: 500, status: 'Pending' },
-    { id: 2, date: '04/28/2024', product:'Chicken',  customer: 'Ngima Lama', total: 350, status: 'Completed' },
-    { id: 3, date: '04/30/2024', product:'Eggs',  customer: 'Rosie Magar', total: 900, status: 'Pending' },
-    // Add more orders here
-  ]);
+  const [orders, setOrders] = useState([]);
+  useState(() => {
+    fetchorders().then((data) => {
+      setOrders(data);
+    });
+  }, []);
+
 
   const [sortBy, setSortBy] = useState(null);
   const [sortDirection, setSortDirection] = useState('asc');
@@ -73,7 +75,7 @@ const OrderManagementTable = () => {
               className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
               onClick={() => handleSort('date')}
             >
-              Date
+              Phone Number
             </th>
             <th
               className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
@@ -106,10 +108,24 @@ const OrderManagementTable = () => {
           {filteredOrders.map(order => (
             <tr key={order.id}>
               <td className="px-6 py-4 whitespace-nowrap">{order.id}</td>
-              <td className="px-6 py-4 whitespace-nowrap">{order.date}</td>
-              <td className="px-6 py-4 whitespace-nowrap">{order.product}</td>
+              <td className="px-6 py-4 whitespace-nowrap">{order.phone}</td>
+              <td className="px-6 py-4 whitespace-nowrap">
+                  {/* Check if order.products is an array before mapping over it */}
+                  {Array.isArray(order.products) ? (
+                    order.products.map((product, index) => (
+                      <div key={index}>
+                        <span>{product.name}</span>
+                        <span className="text-gray-500">{product.quantity}</span>
+                        <br />
+                      </div>
+                    ))
+                  ) : (
+                    // Render a placeholder if order.products is not an array
+                    <span>N/A</span>
+                  )}
+                </td>
               <td className="px-6 py-4 whitespace-nowrap">{order.customer}</td>
-              <td className="px-6 py-4 whitespace-nowrap">{order.total}</td>
+              <td className="px-6 py-4 whitespace-nowrap">{order.amount}</td>
               <td className="px-6 py-4 whitespace-nowrap">{order.status}</td>
             </tr>
           ))}

@@ -102,7 +102,7 @@ DATABASES = {
         'NAME': 'MarketApp',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': '127.0.0.1',  # Connect via TCP/IP
+        'HOST': 'localhost',  # Connect via TCP/IP
         'PORT': '3306',
     }
     

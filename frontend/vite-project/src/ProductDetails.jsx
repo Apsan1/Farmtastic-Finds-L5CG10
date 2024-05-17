@@ -5,7 +5,6 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { CartContext } from './context/cart';
 import Breadcrum from './components/breadcrumbs/breadcrumbs';
 import Carousels from './components/carosules';
-
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
