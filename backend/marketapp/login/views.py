@@ -26,5 +26,4 @@ class LoginAPI(APIView):
             return Response({'message': 'Invalid username or password'}, status=401)
 
 def custom_logout(request):
-    logout(request)
     return redirect('http://localhost:5173/admin/login')
